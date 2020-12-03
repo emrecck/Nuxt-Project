@@ -7,6 +7,7 @@
           <div class="min-miktar-uyarisi">
             * Minimum sipariş tutarı 60,00 TL
           </div>
+
           <img
             src="../assets/images/sepet/brown_line_xl.png"
             class="sepet-brown-line w-100"
@@ -17,6 +18,7 @@
             <li class="urun-tutar">Tutar</li>
             <li class="urun-sil">Sil</li>
           </ul>
+          
           <img
             src="../assets/images/sepet/brown_line_xl.png"
             class="sepet-brown-line w-100"
