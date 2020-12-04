@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container pt-5 mt-5">
     <div class="product-bilgi col-sm-12 row">
       <div class="product-image col-lg-6 col-sm-12 pb-sm-5">
         <a href=""
@@ -80,6 +80,7 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .product-image {
   max-width: 100%;
   width: 100%;

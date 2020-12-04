@@ -1,12 +1,10 @@
 <template>
-    <div class="tum-urunler-main">
-      <div>
-        <div>
-          <ul class="side_category_menu">
+    <div class="tum-urunler-main col-sm-12 px-0">
+        <div class="col-sm-12">
+          <ul class="side_category_menu col-sm-12">
             <li v-for="item in list" v-bind:key="item.id"><a href="#">{{ item.name }}</a></li>
           </ul>
         </div>
-      </div>
     </div>
 </template>
 
@@ -79,11 +77,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .side_category_menu {
-  margin-left: 10px;
   padding: 70px 20px 20px 20px;
   background: url(../assets/images/tum-urunler/side_pattern.png);
   position: relative;
-  width: 280px;
   height: 735px;
   text-align: left;
 }
@@ -100,7 +96,7 @@ export default {
   width: 500px;
   height: 66px;
   position: absolute;
-  left: 6px;
+  left: 5px;
   top: -8px;
 }
 
@@ -127,19 +123,4 @@ export default {
   color: #738638;
 }
 
-body {
-  line-height: 1.42857143;
-  font-family: kg_turning_tablesregular, sans-serif;
-}
-
-.product-top {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.product-list-top img {
-  width: 100%x;
-  margin-left: -70px;
-  margin-top: 20px;
-}
 </style>
