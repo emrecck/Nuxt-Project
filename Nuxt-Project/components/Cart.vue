@@ -24,7 +24,7 @@
             class="sepet-brown-line w-100"
           />
 
-          <div v-bind:key="product.id" v-for="product in itemList" class="alinan-urunler pt-3">
+           <div v-bind:key="urun.id" v-for="urun in product" class="alinan-urunler pt-3">
             <div class="list border p-3">
               <ul class="nav d-flex justify-content-between align-items-center">
                 <li class="nav-items">
@@ -33,13 +33,13 @@
                       <a href="">
                         <img
                           class="w-100"
-                          v-bind:src="product.imgSource"
+                          v-bind:src="urun.imgSource"
                           alt=""
                         />
                       </a>
                     </div>
                     <div class="productName px-2 d-flex align-items-center">
-                      <a href="#" class="name"> {{product.name}} </a>
+                      <a href="#" class="name"> {{urun.name}} </a>
                     </div>
                   </div>
                 </li>
@@ -71,7 +71,9 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> 
+
+          <button @click="getlist(product)">Click</button>
 
           <div class="alisverise-devam-buton col-sm-12 px-0">
             <input
@@ -172,6 +174,14 @@ export default {
       return this.$store.state.product.itemList
     },
   },
+  methods: {
+      getlist(product){
+        for(let a in product)
+        {
+          console.log(product[a].name)
+        }
+      } 
+  }
 };
 </script>
 

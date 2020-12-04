@@ -21,11 +21,12 @@
                   <h3 class="urun-fiyat text-left">{{ item.cost }} TL</h3>
                 </div>
 
-                <button @click="addItem(item)" class="btn">
-                  <a class="col-sm-6 at-sepete-buton">
+                <button @click="addItem(item)" class="col-sm-6 at-sepete-buton">
+                  <!-- <a class="col-sm-6 at-sepete-buton"> -->
                     <img src="../assets/images/banner/at_sepete_sprite.png" />
-                  </a>
+                  <!-- </a> -->
                 </button>
+                <button @click="getitem()">Click</button>
               </div>
             </div>
           </div>
@@ -37,7 +38,7 @@
 
 <script>
 import axios from "axios";
-import {mapMutations} from 'vuex'
+import { mapMutations } from "vuex";
 
 export default {
   name: "Products",
@@ -48,47 +49,51 @@ export default {
       imageList: [
         {
           id: 0,
-          imgSource: require("../assets/images/ürünler/0001030_dogal-koy-yumurtasi-60-adet_500.png")
+          imgSource: require("../assets/images/ürünler/0001030_dogal-koy-yumurtasi-60-adet_500.png"),
         },
         {
           id: 1,
-          imgSource: require('../assets/images/ürünler/0001227_dolgulu-yesil-zeytin-sarimsakli-kekikli-500-gr_500.jpeg')
+          imgSource: require("../assets/images/ürünler/0001227_dolgulu-yesil-zeytin-sarimsakli-kekikli-500-gr_500.jpeg"),
         },
         {
           id: 2,
-          imgSource: require('../assets/images/ürünler/0001225_gurme-paketi_500.jpeg')
+          imgSource: require("../assets/images/ürünler/0001225_gurme-paketi_500.jpeg"),
         },
         {
           id: 3,
-          imgSource: require('../assets/images/ürünler/0000981_dolmalik-biber_500.png')
+          imgSource: require("../assets/images/ürünler/0000981_dolmalik-biber_500.png"),
         },
         {
           id: 4,
-          imgSource: require('../assets/images/ürünler/0001081_dogal-ev-yapimi-pekmez-armut-450-gr_500.png')
+          imgSource: require("../assets/images/ürünler/0001081_dogal-ev-yapimi-pekmez-armut-450-gr_500.png"),
         },
-          {
-          id:5,
-          imgSource:require('../assets/images/ürünler/0001161_patlican_500.png')          
-        },  
         {
-          id:6,
-          imgSource:require('../assets/images/ürünler/0001103_dogal-domates-suyu-1365-gr_500.png')          
-        },  
+          id: 5,
+          imgSource: require("../assets/images/ürünler/0001161_patlican_500.png"),
+        },
         {
-          id:7,
-          imgSource:require('../assets/images/ürünler/0001236_yayik-tereyagi-500-gr_500.jpeg')          
-        }
-      
+          id: 6,
+          imgSource: require("../assets/images/ürünler/0001103_dogal-domates-suyu-1365-gr_500.png"),
+        },
+        {
+          id: 7,
+          imgSource: require("../assets/images/ürünler/0001236_yayik-tereyagi-500-gr_500.jpeg"),
+        },
       ],
     };
   },
-
-    methods: {
-      addItem(e){
-      this.$store.commit('product/add', e)
+  methods: {
+    addItem(item){
+      this.$store.commit('product/add', item);
+    },
+    getitem(){
+      let temp = this.$store.state.product.itemList
+      for(let i in temp)
+      {
+        console.log(temp[i])
+      }
     }
   },
-
 
   created() {
     axios
@@ -96,7 +101,10 @@ export default {
       .then((response) => {
         let data = response.data;
         for (let key in data) {
-          this.list.push({...data[key],imgSource : this.imageList[key].imgSource});
+          this.list.push({
+            ...data[key],
+            imgSource: this.imageList[key].imgSource,
+          });
         }
       });
   },

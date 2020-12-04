@@ -23,9 +23,12 @@
 
           <div class="col-sm-2 sepet">
             <div class="dropdown">
-              <button class="dropdown-buton" data-toggle="popover" type="button" data-container="body" data-placement="bottom" data-content="Vivamus">
+              <nuxt-link to="/cart">
+                <button class="dropdown-buton" data-toggle="popover" type="button" data-container="body" data-placement="bottom" data-content="Vivamus">
                 <img src="../assets/images/banner/red_basket_icon.png" alt="" />
               </button>
+              </nuxt-link>
+              
             </div>
           </div>
         </div>
