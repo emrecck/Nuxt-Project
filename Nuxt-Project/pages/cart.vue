@@ -13,6 +13,7 @@ export default {
     Header,
     Cart
   },
+
 };
 </script>
 

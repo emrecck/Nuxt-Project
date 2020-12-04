@@ -24,7 +24,7 @@
             class="sepet-brown-line w-100"
           />
 
-          <div class="alinan-urunler pt-3">
+          <div v-bind:key="product.id" v-for="product in itemList" class="alinan-urunler pt-3">
             <div class="list border p-3">
               <ul class="nav d-flex justify-content-between align-items-center">
                 <li class="nav-items">
@@ -33,19 +33,19 @@
                       <a href="">
                         <img
                           class="w-100"
-                          src="../assets/images/ürünler/0000981_dolmalik-biber_500.png"
+                          v-bind:src="product.imgSource"
                           alt=""
                         />
                       </a>
                     </div>
                     <div class="productName px-2 d-flex align-items-center">
-                      <a href="#" class="name"> Dolmalık Biber </a>
+                      <a href="#" class="name"> {{product.name}} </a>
                     </div>
                   </div>
                 </li>
                 <li class="nav-items pl-5 ml-3">
-                 <div class="buttons">
-                     <div
+                  <div class="buttons">
+                    <div
                       class="btn-group"
                       role="group"
                       aria-lael="Basic example"
@@ -57,12 +57,15 @@
                   </div>
                 </li>
                 <li class="nav-items pl-5">
-                  <span class="sepetfiyat"> 34,90 TL </span>
+                  <span class="sepetfiyat"> {{product.cost}} </span>
                 </li>
                 <li class="nav-items pr-4">
                   <span class="deleteIcon">
                     <button class="border-0 bg-white">
-                      <img src="../assets/images/sepet/delete_icon.png" alt="" />
+                      <img
+                        src="../assets/images/sepet/delete_icon.png"
+                        alt=""
+                      />
                     </button>
                   </span>
                 </li>
@@ -158,235 +161,242 @@
 </template>
 
 <script>
+
+
 export default {
   name: "Cart",
   props: {},
+
+  computed: {
+    product(){
+      return this.$store.state.product.itemList
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-.sepet-main{
-  margin-top: 120px; 
+.sepet-main {
+  margin-top: 120px;
 }
 
-.alisveris-sepetim{
-    position: relative;
+.alisveris-sepetim {
+  position: relative;
 }
-.sepet-baslik{
-    color: #b76f3b;
-    text-align: left;
-    font-size: 1.8rem;
-}
-
-.min-miktar-uyarisi{
-    display: block;
-    border: 2px solid #e64552;
-    padding: 7px 12px;
-    color: #e64552;
-    font-size: 1.3rem;
-    font-weight: bold;
-    position: absolute;
-    right:10px;
-    top:-40px;
+.sepet-baslik {
+  color: #b76f3b;
+  text-align: left;
+  font-size: 1.8rem;
 }
 
-.sepet-urun-basliklari{
-    color: #b76f3b;
-    width: 100%;
-    font-size: 1.4rem;
-    font-weight: bold;
+.min-miktar-uyarisi {
+  display: block;
+  border: 2px solid #e64552;
+  padding: 7px 12px;
+  color: #e64552;
+  font-size: 1.3rem;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: -40px;
 }
 
-.urun-adi{
-    text-align: center;
-    float: left;
-    list-style-type: none;
-    width: 34%;
+.sepet-urun-basliklari {
+  color: #b76f3b;
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
-.urun-adet{
-    text-align: center;
-    float: left;
-    list-style-type: none;
-    width: 28%;
+.urun-adi {
+  text-align: center;
+  float: left;
+  list-style-type: none;
+  width: 34%;
 }
 
-.urun-tutar{
-    text-align: center;
-    float: left;
-    list-style-type: none;
-    width: 28%;
+.urun-adet {
+  text-align: center;
+  float: left;
+  list-style-type: none;
+  width: 28%;
 }
 
-.urun-sil{
-    text-align: center;
-    float: left;
-    list-style-type: none;
-    width: 10%;
+.urun-tutar {
+  text-align: center;
+  float: left;
+  list-style-type: none;
+  width: 28%;
 }
 
-.alisverise-devam-buton{
-    text-align: initial;
-    float: left;
-    width: 100%;
-    margin-top: 25px;
+.urun-sil {
+  text-align: center;
+  float: left;
+  list-style-type: none;
+  width: 10%;
 }
 
-.alisverise-devam-input{
-    -webkit-appearance: button;
-    cursor: pointer;
-    display: initial;
-    float: left;
-    background: #d4c7bc;
-    width: 253px;
-    height: 46px;
-    border: 0;
-    color: #fff;
-    font-size: 15px;
-    font-weight: bold;
+.alisverise-devam-buton {
+  text-align: initial;
+  float: left;
+  width: 100%;
+  margin-top: 25px;
 }
 
-.alisverise-devam-input:hover{
-    -webkit-appearance: button;
-    cursor: pointer;
-    display: initial;
-    float: left;
-    background-color: #bb9c80;
-    height: 46px;
-    border: 0;
-    color: #fff;
-    font-size: 15px;
-    font-weight: bold;
-}
-.urunadi{
-    max-width: 100%;
-}
-.productImg{
-    width: 75px;
-}
-.productName .name{
-    font-size: 1.4rem;
-    font-weight: 500;
-    color:inherit;
-}
-.buttons{
-    max-width: 100%;
-}
-.sepetbutton{
-    background-image:url(../assets/images/sepet/spinner_bg.png);
-    background-clip: border-box;
-    background-size: cover;
-    border: 0;
-    color: #b76f3b;
-    width: 25px;
-    height: 25px;
-    font-size: 1.4rem;
-    background-color:transparent;
-}
-.sepetfiyat{
-    font-size: 1.7rem;
-    color:#d53235;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-.deleteIcon{
-    background-color: transparent;
-}
-.ara-toplam-kargo-ucreti{
-    border: 1px solid #dcdcdc;
+.alisverise-devam-input {
+  -webkit-appearance: button;
+  cursor: pointer;
+  display: initial;
+  float: left;
+  background: #d4c7bc;
+  width: 253px;
+  height: 46px;
+  border: 0;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
 }
 
-.ara-toplam-kargo-ucreti li{
-    margin-top: -15px;
-    margin-left: -40px;
+.alisverise-devam-input:hover {
+  -webkit-appearance: button;
+  cursor: pointer;
+  display: initial;
+  float: left;
+  background-color: #bb9c80;
+  height: 46px;
+  border: 0;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+}
+.urunadi {
+  max-width: 100%;
+}
+.productImg {
+  width: 75px;
+}
+.productName .name {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: inherit;
+}
+.buttons {
+  max-width: 100%;
+}
+.sepetbutton {
+  background-image: url(../assets/images/sepet/spinner_bg.png);
+  background-clip: border-box;
+  background-size: cover;
+  border: 0;
+  color: #b76f3b;
+  width: 25px;
+  height: 25px;
+  font-size: 1.4rem;
+  background-color: transparent;
+}
+.sepetfiyat {
+  font-size: 1.7rem;
+  color: #d53235;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.deleteIcon {
+  background-color: transparent;
+}
+.ara-toplam-kargo-ucreti {
+  border: 1px solid #dcdcdc;
 }
 
-.ara-toplam-kargo-ucreti span{
-    font-weight: bold;
+.ara-toplam-kargo-ucreti li {
+  margin-top: -15px;
+  margin-left: -40px;
 }
 
-.sepet-urun-adedi{
-    border: 1px solid #dcdcdc;
-    border-bottom: 0;
-}
-.sepet-urun-adedi img{
-    width: 27px;
-    float: left;
-}
-.sepet-urun-adedi span{
-    float: left;
-    color: #d53235;
-    font-weight: bold;
-    line-height: 20px;
-    font-size: 1.4rem;
-    padding: 3px 15px;
+.ara-toplam-kargo-ucreti span {
+  font-weight: bold;
 }
 
-.ara-toplam-kargo-ucreti ul{
-    list-style-type: disc;
-    font-size: 1.4rem;
+.sepet-urun-adedi {
+  border: 1px solid #dcdcdc;
+  border-bottom: 0;
+}
+.sepet-urun-adedi img {
+  width: 27px;
+  float: left;
+}
+.sepet-urun-adedi span {
+  float: left;
+  color: #d53235;
+  font-weight: bold;
+  line-height: 20px;
+  font-size: 1.4rem;
+  padding: 3px 15px;
 }
 
-.ara-toplam-kargo-ucreti ul li{
-    list-style-type: none;
-    width: 100%;
+.ara-toplam-kargo-ucreti ul {
+  list-style-type: disc;
+  font-size: 1.4rem;
 }
 
-.toplam{
-    border: 1px solid #dcdcdc;
-    font-size: 1.4rem;
-    color: #d53235;
-    font-weight: bold;
-}
-.indirim-kodu{
-    border: 1px solid #dcdcdc;
-}
-.indirimKodu{
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin-bottom:13px;
-    display: inline-block;
-}
-.i-kupon-input{
-    background: #fff;
-    font-family: georgia;
-    font-size: 1.2rem;
-    padding: 0px;
-    height: 34px;
-    border: 1px solid #dedede!important;
+.ara-toplam-kargo-ucreti ul li {
+  list-style-type: none;
+  width: 100%;
 }
 
-.i-kupon-buton{
-    cursor: pointer;
-    font-size: 1.4rem;
-    background: #afa58c;
-    color: #fff;
-    height: 35px!important;
-    border: none;
+.toplam {
+  border: 1px solid #dcdcdc;
+  font-size: 1.4rem;
+  color: #d53235;
+  font-weight: bold;
+}
+.indirim-kodu {
+  border: 1px solid #dcdcdc;
+}
+.indirimKodu {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 13px;
+  display: inline-block;
+}
+.i-kupon-input {
+  background: #fff;
+  font-family: georgia;
+  font-size: 1.2rem;
+  padding: 0px;
+  height: 34px;
+  border: 1px solid #dedede !important;
+}
+
+.i-kupon-buton {
+  cursor: pointer;
+  font-size: 1.4rem;
+  background: #afa58c;
+  color: #fff;
+  height: 35px !important;
+  border: none;
 }
 
 .satin-al-input {
-    cursor: pointer;
-    height: 48px;
-    border: none;
-    background: #73a12e;
-    width: 100%!important;
-    float: left;
-    margin-top: 25px;
-    color: #fff;
-    font-size: 1.7rem;
-    font-weight: 500;
+  cursor: pointer;
+  height: 48px;
+  border: none;
+  background: #73a12e;
+  width: 100% !important;
+  float: left;
+  margin-top: 25px;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 500;
 }
-.satin-al-input:hover{
-    background-color:#62802a;
-    transition: background-color .4s ease-in 0s;
+.satin-al-input:hover {
+  background-color: #62802a;
+  transition: background-color 0.4s ease-in 0s;
 }
-.min-siparis-tutari p{
-    font-size: 15px;
-    font-weight: bold;
+.min-siparis-tutari p {
+  font-size: 15px;
+  font-weight: bold;
 }
 </style>

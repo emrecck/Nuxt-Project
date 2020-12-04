@@ -20,9 +20,12 @@
                 <div class="col-sm-6">
                   <h3 class="urun-fiyat text-left">{{ item.cost }} TL</h3>
                 </div>
-                <a class="col-sm-6 at-sepete-buton">
-                  <img src="../assets/images/banner/at_sepete_sprite.png" />
-                </a>
+
+                <button @click="addItem(item)" class="btn">
+                  <a class="col-sm-6 at-sepete-buton">
+                    <img src="../assets/images/banner/at_sepete_sprite.png" />
+                  </a>
+                </button>
               </div>
             </div>
           </div>
@@ -34,6 +37,7 @@
 
 <script>
 import axios from "axios";
+import {mapMutations} from 'vuex'
 
 export default {
   name: "Products",
@@ -65,16 +69,27 @@ export default {
           {
           id:5,
           imgSource:require('../assets/images/ürünler/0001161_patlican_500.png')          
-        },  {
+        },  
+        {
           id:6,
           imgSource:require('../assets/images/ürünler/0001103_dogal-domates-suyu-1365-gr_500.png')          
-        },  {
+        },  
+        {
           id:7,
           imgSource:require('../assets/images/ürünler/0001236_yayik-tereyagi-500-gr_500.jpeg')          
         }
+      
       ],
     };
   },
+
+    methods: {
+      addItem(e){
+      this.$store.commit('product/add', e)
+    }
+  },
+
+
   created() {
     axios
       .get("https://nuxt-js-79077-default-rtdb.firebaseio.com/list.json")
