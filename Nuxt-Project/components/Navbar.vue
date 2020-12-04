@@ -5,13 +5,13 @@
         <div class="container">
           <ul class="nav d-flex justify-content-around col-sm-12 ">
             <li class="nav-items">
-              <a class="" href="#"><div class="anasayfa"></div></a>
+              <nuxt-link to="/home"><div class="anasayfa"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
               <a class="" href="#"><div class="ciftlik"></div></a>
             </li>
             <li class="nav-items mt-2">
-              <a class="" href="#"><div class="tum-urunler"></div></a>
+              <nuxt-link to="/allproducts"><div class="tum-urunler"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
               <a class="" href="#"><div class="domates-biber"></div></a>

@@ -11,19 +11,19 @@
           </div>
 
           <div class="col-sm-4 d-flex justify-content-center uye-islemleri">
-            <a href="#" class="kayit text-decoration-none">
+            <nuxt-link to="/signup" class="kayit text-decoration-none">
               <i class="fas fa-angle-right text-danger icon"></i>
-              Üye Olun</a
+              Üye Olun</nuxt-link
             >
-            <a href="#" class="giris ml-5 text-decoration-none">
+            <nuxt-link to="/signin" href="#" class="giris ml-5 text-decoration-none">
               <i class="fas fa-angle-right text-danger icon"></i>
-              Üye Girişi</a
+              Üye Girişi</nuxt-link
             >
           </div>
 
           <div class="col-sm-2 sepet">
             <div class="dropdown">
-              <button class="dropdown-buton">
+              <button class="dropdown-buton" data-toggle="popover" type="button" data-container="body" data-placement="bottom" data-content="Vivamus">
                 <img src="../assets/images/banner/red_basket_icon.png" alt="" />
               </button>
             </div>
@@ -34,9 +34,9 @@
     <div class="bottom-banner pb-2 col-sm-12">
       <div class="container temp">
         <div class="col-sm-12 logo d-flex justify-content-center pt-5">
-          <a href="https://www.hasanbey.com/tr/"
+          <nuxt-link to="/home"
             ><img src="../assets/images/banner/logo.png"
-          /></a>
+          /></nuxt-link>
         </div>
 
         <div class="arama-bar">
@@ -67,6 +67,7 @@ export default {
     Navbar,
   },
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

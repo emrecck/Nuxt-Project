@@ -18,7 +18,7 @@
             <li class="urun-tutar">Tutar</li>
             <li class="urun-sil">Sil</li>
           </ul>
-          
+
           <img
             src="../assets/images/sepet/brown_line_xl.png"
             class="sepet-brown-line w-100"
@@ -166,6 +166,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.sepet-main{
+  margin-top: 120px; 
+}
+
 .alisveris-sepetim{
     position: relative;
 }
