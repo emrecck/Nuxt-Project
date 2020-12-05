@@ -6,7 +6,7 @@
           <div class="col-sm-12 px-0 urun">
             <div class="col-sm-12 p-0">
               <a href="#">
-                <img class="urun-img" v-bind:src="item.imgSource" />
+                <nuxt-link to="/product"><img @click="addProductItem(item)" class="urun-img" v-bind:src="item.imgSource" /></nuxt-link>
               </a>
             </div>
 
@@ -56,6 +56,9 @@ export default {
     },
     addProduct(product){
       this.$store.commit('product/addProduct',product)
+    },
+    addProductItem(productItem){
+      this.$store.commit('product/addProductItem',productItem)
     }
   },
 

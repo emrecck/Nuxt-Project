@@ -33,11 +33,15 @@ export const state = () => ({
             id: 7,
             imgSource: require("../assets/images/ürünler/0001236_yayik-tereyagi-500-gr_500.jpeg"),
           }
-    ]
+    ],
+    productItem:''
   })
 
   export const mutations = {
       addProduct(state,product){
         state.productList = product;
+      },
+      addProductItem(state,productItem){
+        state.productItem = productItem;
       }
   }

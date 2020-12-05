@@ -12,7 +12,7 @@ export default {
   components: {
     Header,
     Product
-  },
+  }
 };
 </script>
 

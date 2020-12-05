@@ -3,18 +3,15 @@
     <div class="product-bilgi col-sm-12 row">
       <div class="product-image col-lg-6 col-sm-12 pb-sm-5">
         <a href=""
-          ><img
-            class="productimg"
-            src="../assets/images/urun/0001149_citir-biber-aci-.jpeg"
-            alt=""
+          ><img class="productimg" v-bind:src="productItem.imgSource" alt=""
         /></a>
       </div>
 
       <div class="baslik-sepet-ozellik col-lg-6 col-sm-12">
         <div class="product-baslik text-left clearfix">
-          <h1 class="d-inline-block">Çıtır Biber ( Acı )</h1>
-          <span class="float-right">22,90 TL</span>
-          <p>1 Kg Acı Biber</p>
+          <h1 class="d-inline-block">{{ productItem.name }}</h1>
+          <span class="float-right">{{ productItem.cost }} TL</span>
+          <p>{{ productItem.subName }}</p>
         </div>
 
         <div class="product-sepet text-left col-sm-12 px-0">
@@ -23,13 +20,25 @@
 
             <div class="buttons pb-5 mb-4">
               <div class="btn-group" role="group" aria-lael="Basic example">
-                <button :disabled="counter <=1" @click="counter--" type="button" class="minus-button" title="-"></button>
-                <input type="text" class="input-button" :value= "counter" />
-                <button @click="counter++" type="button" class="plus-button" title="+"></button>
+                <button
+                  :disabled="counter <= 1"
+                  @click="counter--"
+                  type="button"
+                  class="minus-button"
+                  title="-"
+                ></button>
+                <input type="text" class="input-button" :value="counter" />
+                <button
+                  @click="counter++"
+                  type="button"
+                  class="plus-button"
+                  title="+"
+                ></button>
               </div>
             </div>
 
             <input
+              @click="add(productItem)"
               type="button"
               class="product-buton col-sm-12 col-lg-7 mb-5"
             />
@@ -50,12 +59,12 @@
         <div class="product-ozellik text-left mt-5 col-sm-12 px-0">
           <h3>
             <img src="../assets/images/urun/bugday_icon.png" alt="" /> Ürün
-            Özellikleri 
+            Özellikleri
           </h3>
           <p>
             Taze, çıtır çıtır biberlerimizi günlük olarak hasat ediyor;
-            siparişinizle topluyoruz.
-            Yemeklerinizde, kahvaltılarınızda afiyetle yiyebilirsiniz.
+            siparişinizle topluyoruz. Yemeklerinizde, kahvaltılarınızda afiyetle
+            yiyebilirsiniz.
           </p>
           <a href="https://www.hasanbey.com/tr/gunluk-cikanlar"></a>
         </div>
@@ -67,20 +76,27 @@
 <script>
 export default {
   name: "Product",
-  props: {
-    
-  },
+  props: {},
   data() {
     return {
-      counter:1,
-      cost:22.90
-    }
-  }
+      counter: 1,
+      cost: 22.9,
+    };
+  },
+  computed: {
+    productItem() {
+      return this.$store.state.product.productItem;
+    },
+  },
+  methods: {
+    add(item) {
+      this.$store.commit("cart/add", item);
+    },
+  },
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .product-image {
   max-width: 100%;
   width: 100%;
@@ -170,7 +186,7 @@ export default {
 .product-quality img {
   width: 350px;
 }
-.kargo-bedava-badge{
+.kargo-bedava-badge {
   position: absolute;
   top: 0;
   width: 125px;
