@@ -326,9 +326,6 @@ export default {
   height: 25px;
   font-size: 1.4rem;
   background-color: transparent;
-<<<<<<< HEAD
-  outline: none;
-=======
 } */
 .minus-button {
   background-image: url("../assets/images/urun/spinner_minus.png");
@@ -365,7 +362,6 @@ export default {
   height: 41px;
   font-size: 1.4rem;
   background-color: transparent;
->>>>>>> 528510e72d96ee27a9b3a3cf369e73177ba6d27a
 }
 .sepetfiyat {
   font-size: 1.7rem;

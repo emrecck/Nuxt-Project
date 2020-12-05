@@ -1,8 +1,8 @@
 <template>
   <div class="col-sm-12 banner px-0">
     <div class="col-sm-12 my-2">
-      <nav class="kategoriler col-sm-12">
-        <div class="container">
+      <nav class="kategoriler col-sm-12 ">
+        <div class="container navbar sticky-top">
           <ul class="nav d-flex justify-content-around col-sm-12 ">
             <li class="nav-items">
               <nuxt-link to="/"><div class="anasayfa"></div></nuxt-link>
@@ -49,10 +49,18 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+ <!-- background-color: #E64452; -->
 <style scoped>
 .container{
   max-width: 1140px;
 }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .bottom-banner {
   background: url(../assets/images/banner/nav_bg.png);
 }
@@ -85,7 +93,7 @@ export default {
 }
 
 .domates-biber {
-  background: url(../assets/images/banner/kategori/domates-biber.png) no-repeat
+  background: url(../assets/images/banner/kategori/sebze-meyve.png) no-repeat
     center;
   background-size: contain;
   background-color: transparent;
@@ -154,7 +162,7 @@ export default {
 }
 
 .anasayfa:hover {
-  background: url(../assets/images/banner/kategori/anasayfa-1.png) no-repeat
+  background: url(../assets/images/banner/kategori/black/anasayfa.png) no-repeat
     center;
   background-size: contain;
   background-position: center;
@@ -165,7 +173,7 @@ export default {
 }
 
 .ciftlik:hover {
-  background: url(../assets/images/banner/kategori/ciftlik-1.png) no-repeat
+  background: url(../assets/images/banner/kategori/black/ciftlik.png) no-repeat
     center;
   background-size: contain;
   background-color: transparent;
@@ -175,7 +183,7 @@ export default {
 }
 
 .tum-urunler:hover {
-  background: url(../assets/images/banner/kategori/tum-urunler-1.png) no-repeat
+  background: url(../assets/images/banner/kategori/black/tum-urunler.png) no-repeat
     center;
   background-size: contain;
   background-color: transparent;
@@ -185,7 +193,7 @@ export default {
 }
 
 .domates-biber:hover {
-  background: url(../assets/images/banner/kategori/domates-biber-1.png)
+  background: url(../assets/images/banner/kategori/black/sebze-meyve.png)
     no-repeat center;
   background-size: contain;
   background-color: transparent;
@@ -195,7 +203,7 @@ export default {
 }
 
 .sut-peynir:hover {
-  background: url(../assets/images/banner/kategori/sut-peynir-1.png) no-repeat
+  background: url(../assets/images/banner/kategori/black/sut-peynir.png) no-repeat
     center;
   background-size: contain;
   background-color: transparent;
@@ -205,7 +213,7 @@ export default {
 }
 
 .yumurta-sucuk:hover {
-  background: url(../assets/images/banner/kategori/yumurta-1.png) no-repeat
+  background: url(../assets/images/banner/kategori/black/yumurta-sucuk.png) no-repeat
     center;
   background-size: contain;
   background-color: transparent;
@@ -215,7 +223,7 @@ export default {
 }
 
 .salca-tursu:hover {
-  background: url(../assets/images/banner/kategori/salca-tursu-1.png) no-repeat
+  background: url(../assets/images/banner/kategori/black/salca-tursu.png) no-repeat
     center;
   background-size: contain;
   background-color: transparent;
@@ -225,7 +233,7 @@ export default {
 }
 
 .zeytin-zeytinyagi:hover {
-  background: url(../assets/images/banner/kategori/zeytin-zeytinyagi-1.png)
+  background: url(../assets/images/banner/kategori/black/zeytin-zeytinyagi.png)
     no-repeat center;
   background-size: contain;
   background-color: transparent;
@@ -235,7 +243,7 @@ export default {
 }
 
 .recel-bal:hover {
-  background: url(../assets/images/banner/kategori/recel-bal-1.png) no-repeat
+  background: url(../assets/images/banner/kategori/black/recel-bal.png) no-repeat
     center;
   background-size: contain;
   background-color: transparent;
@@ -245,7 +253,7 @@ export default {
 }
 
 .ekmek:hover {
-  background: url(../assets/images/banner/kategori/ekmek-1.png) no-repeat
+  background: url(../assets/images/banner/kategori/black/ekmek.png) no-repeat
   center;
   background-size: contain;
   background-color: transparent;

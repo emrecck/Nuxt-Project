@@ -1,10 +1,6 @@
 export const state = () => ({
-<<<<<<< HEAD
     itemList : []
     
-=======
-    itemList : [],
->>>>>>> 528510e72d96ee27a9b3a3cf369e73177ba6d27a
   })
 
   export const mutations = {
