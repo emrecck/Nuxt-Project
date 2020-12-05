@@ -304,6 +304,7 @@ export default {
   height: 25px;
   font-size: 1.4rem;
   background-color: transparent;
+  outline: none;
 }
 .sepetfiyat {
   font-size: 1.7rem;
