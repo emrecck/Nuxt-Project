@@ -5,7 +5,7 @@
         <div class="container">
           <ul class="nav d-flex justify-content-around col-sm-12 ">
             <li class="nav-items">
-              <nuxt-link to="/home"><div class="anasayfa"></div></nuxt-link>
+              <nuxt-link to="/"><div class="anasayfa"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
               <a class="" href="#"><div class="ciftlik"></div></a>

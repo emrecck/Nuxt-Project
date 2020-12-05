@@ -24,7 +24,7 @@
             class="sepet-brown-line w-100"
           />
 
-           <div v-bind:key="urun.id" v-for="urun in product" class="alinan-urunler pt-3">
+           <div v-bind:key="product.id" v-for="product in cart" class="alinan-urunler pt-3">
             <div class="list border p-3">
               <ul class="nav d-flex justify-content-between align-items-center">
                 <li class="nav-items">
@@ -33,13 +33,13 @@
                       <a href="">
                         <img
                           class="w-100"
-                          v-bind:src="urun.imgSource"
+                          v-bind:src="product.imgSource"
                           alt=""
                         />
                       </a>
                     </div>
                     <div class="productName px-2 d-flex align-items-center">
-                      <a href="#" class="name"> {{urun.name}} </a>
+                      <a href="#" class="name"> {{product.name}} </a>
                     </div>
                   </div>
                 </li>
@@ -57,7 +57,7 @@
                   </div>
                 </li>
                 <li class="nav-items pl-5">
-                  <span class="sepetfiyat"> {{product.cost}} </span>
+                  <span class="sepetfiyat"> {{product.cost}} TL</span>
                 </li>
                 <li class="nav-items pr-4">
                   <span class="deleteIcon">
@@ -72,8 +72,6 @@
               </ul>
             </div>
           </div> 
-
-          <button @click="getlist(product)">Click</button>
 
           <div class="alisverise-devam-buton col-sm-12 px-0">
             <input
@@ -170,17 +168,9 @@ export default {
   props: {},
 
   computed: {
-    product(){
-      return this.$store.state.product.itemList
+    cart(){
+      return this.$store.state.cart.itemList
     },
-  },
-  methods: {
-      getlist(product){
-        for(let a in product)
-        {
-          console.log(product[a].name)
-        }
-      } 
   }
 };
 </script>

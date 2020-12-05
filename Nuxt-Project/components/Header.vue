@@ -37,7 +37,7 @@
     <div class="bottom-banner pb-2 col-sm-12">
       <div class="container temp">
         <div class="col-sm-12 logo d-flex justify-content-center pt-5">
-          <nuxt-link to="/home"
+          <nuxt-link to="/"
             ><img src="../assets/images/banner/logo.png"
           /></nuxt-link>
         </div>

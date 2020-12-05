@@ -1,7 +1,7 @@
 <template>
   <div class="products col-sm-12">
     <div class="row">
-      <div class="col-sm-3 px-0 p-2" v-for="item in list" v-bind:key="item.id">
+      <div class="col-sm-3 px-0 p-2" v-for="item in product" v-bind:key="item.id">
         <div class="col-sm-12 p-3 border-layer">
           <div class="col-sm-12 px-0 urun">
             <div class="col-sm-12 p-0">
@@ -26,7 +26,6 @@
                     <img src="../assets/images/banner/at_sepete_sprite.png" />
                   <!-- </a> -->
                 </button>
-                <button @click="getitem()">Click</button>
               </div>
             </div>
           </div>
@@ -43,55 +42,20 @@ import { mapMutations } from "vuex";
 export default {
   name: "Products",
   props: {},
-  data() {
-    return {
-      list: [],
-      imageList: [
-        {
-          id: 0,
-          imgSource: require("../assets/images/ürünler/0001030_dogal-koy-yumurtasi-60-adet_500.png"),
-        },
-        {
-          id: 1,
-          imgSource: require("../assets/images/ürünler/0001227_dolgulu-yesil-zeytin-sarimsakli-kekikli-500-gr_500.jpeg"),
-        },
-        {
-          id: 2,
-          imgSource: require("../assets/images/ürünler/0001225_gurme-paketi_500.jpeg"),
-        },
-        {
-          id: 3,
-          imgSource: require("../assets/images/ürünler/0000981_dolmalik-biber_500.png"),
-        },
-        {
-          id: 4,
-          imgSource: require("../assets/images/ürünler/0001081_dogal-ev-yapimi-pekmez-armut-450-gr_500.png"),
-        },
-        {
-          id: 5,
-          imgSource: require("../assets/images/ürünler/0001161_patlican_500.png"),
-        },
-        {
-          id: 6,
-          imgSource: require("../assets/images/ürünler/0001103_dogal-domates-suyu-1365-gr_500.png"),
-        },
-        {
-          id: 7,
-          imgSource: require("../assets/images/ürünler/0001236_yayik-tereyagi-500-gr_500.jpeg"),
-        },
-      ],
-    };
+  computed:{
+    product(){
+      return this.$store.state.product.productList
+    },
+    image(){
+      return this.$store.state.product.imageList
+    }
   },
   methods: {
     addItem(item){
-      this.$store.commit('product/add', item);
+      this.$store.commit('cart/add', item);
     },
-    getitem(){
-      let temp = this.$store.state.product.itemList
-      for(let i in temp)
-      {
-        console.log(temp[i])
-      }
+    addProduct(product){
+      this.$store.commit('product/addProduct',product)
     }
   },
 
@@ -100,71 +64,18 @@ export default {
       .get("https://nuxt-js-79077-default-rtdb.firebaseio.com/list.json")
       .then((response) => {
         let data = response.data;
-        for (let key in data) {
-          this.list.push({
-            ...data[key],
-            imgSource: this.imageList[key].imgSource,
-          });
+        let list=[]
+        let temp = ''
+        for(let key in data)
+        {
+          temp = {...data[key],imgSource: this.image[key].imgSource};
+          list.push(temp)
         }
+        this.addProduct(list)
       });
-  },
+  }
 };
-// {
-//   id: 0,
-//   imgSource: require("../assets/images/ürünler/0001030_dogal-koy-yumurtasi-60-adet_500.png"),
-//   name: "Doğal Köy Yumurtası 60 Adet",
-//   subName: "60 Adet Doğal Köy Yumurtası",
-//   cost: "65,90",
-// },
-// {
-//   id: 1,
-//   imgSource: require("../assets/images/ürünler/0001227_dolgulu-yesil-zeytin-sarimsakli-kekikli-500-gr_500.jpeg"),
-//   name: "Dolgulu Yeşil Zeytin ",
-//   subName: "Sarımsaklı Kekikli 500gr",
-//   cost: "27",
-// },
-// {
-//   id: 2,
-//   imgSource: require("../assets/images/ürünler/0001225_gurme-paketi_500.jpeg"),
-//   name: "Eski Peynir",
-//   subName: "Gurme Paketi",
-//   cost: "15",
-// },
-// {
-//   id: 3,
-//   imgSource: require("../assets/images/ürünler/0000981_dolmalik-biber_500.png"),
-//   name: "Dolmalık Biber",
-//   subName: "60 Adet Doğal Köy Yumurtası",
-//   cost: "34,90",
-// },
-// {
-//   id: 4,
-//   imgSource: require("../assets/images/ürünler/0001081_dogal-ev-yapimi-pekmez-armut-450-gr_500.png"),
-//   name: "Doğal Pekmez",
-//   subName: "Ev Yapımı 450gr",
-//   cost: "55",
-// },
-// {
-//   id: 5,
-//   imgSource: require("../assets/images/ürünler/0001161_patlican_500.png"),
-//   name: "Patlıcan",
-//   subName: "Patlıcan ",
-//   cost: "",
-// },
-// {
-//   id: 6,
-//   imgSource: require("../assets/images/ürünler/0001103_dogal-domates-suyu-1365-gr_500.png"),
-//   name: "Doğal Domates Suyu",
-//   subName: "Domates Suyu 1365gr",
-//   cost: "15",
-// },
-// {
-//   id: 7,
-//   imgSource: require("../assets/images/ürünler/0001236_yayik-tereyagi-500-gr_500.jpeg"),
-//   name: "Yayık Tereyağı",
-//   subName: "Yayık Tereyağı 500gr",
-//   cost: "35",
-// },
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

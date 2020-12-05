@@ -1,31 +1,43 @@
 export const state = () => ({
-    itemList : [
-      // {
-      //   id:0,
-      //   imgSource: require('../assets/images/ürünler/0000981_dolmalik-biber_500.png'),
-      //   name: "Dolmalık Biber",
-      //   subName: "60 Adet Doğal Köy Yumurtası",
-      //   cost: "34,90"
-
-      // },
-      // {
-      //   id:1,
-      //   imgSource: require('../assets/images/ürünler/0000981_dolmalik-biber_500.png'),
-      //   name: "Biber",
-      //   subName: "60 Adet Doğal Köy Yumurtası",
-      //   cost: "34,90"
-
-      // }
+    productList : [],
+    imageList:[
+        {
+            id: 0,
+            imgSource: require("../assets/images/ürünler/0001030_dogal-koy-yumurtasi-60-adet_500.png"),
+          },
+          {
+            id: 1,
+            imgSource: require("../assets/images/ürünler/0001227_dolgulu-yesil-zeytin-sarimsakli-kekikli-500-gr_500.jpeg"),
+          },
+          {
+            id: 2,
+            imgSource: require("../assets/images/ürünler/0001225_gurme-paketi_500.jpeg"),
+          },
+          {
+            id: 3,
+            imgSource: require("../assets/images/ürünler/0000981_dolmalik-biber_500.png"),
+          },
+          {
+            id: 4,
+            imgSource: require("../assets/images/ürünler/0001081_dogal-ev-yapimi-pekmez-armut-450-gr_500.png"),
+          },
+          {
+            id: 5,
+            imgSource: require("../assets/images/ürünler/0001161_patlican_500.png"),
+          },
+          {
+            id: 6,
+            imgSource: require("../assets/images/ürünler/0001103_dogal-domates-suyu-1365-gr_500.png"),
+          },
+          {
+            id: 7,
+            imgSource: require("../assets/images/ürünler/0001236_yayik-tereyagi-500-gr_500.jpeg"),
+          }
     ]
   })
 
   export const mutations = {
-
-    add(state, item){
-      state.itemList.push(item)
-    },
-
-    remove(state, {item}){
-      state.itemList.splice(state.itemList.indexOf(item), 1)
-    }
+      addProduct(state,product){
+        state.productList = product;
+      }
   }
