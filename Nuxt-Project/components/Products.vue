@@ -106,7 +106,8 @@ img {
 }
 .at-sepete-buton {
   cursor: pointer;
-  border: 0px;
+  border: none;
+  outline:none;
   background-color: transparent;
 }
 .at-sepete-buton img {

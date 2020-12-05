@@ -8,7 +8,7 @@ export const state = () => ({
       state.itemList.push(item)
     },
 
-    remove(state, {item}){
-      state.itemList.splice(state.itemList.indexOf(item), 1)
+    remove(state, index){
+      state.itemList.splice(state.itemList[index], 1)
     }
   }
