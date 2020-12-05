@@ -21,15 +21,19 @@
             <div class="buttons pb-5 mb-4">
               <div class="btn-group" role="group" aria-lael="Basic example">
                 <button
-                  :disabled="counter <= 1"
-                  @click="counter--"
+                  :disabled="productItem.quantity <= 1"
+                  @click="decQuantity"
                   type="button"
                   class="minus-button"
                   title="-"
                 ></button>
-                <input type="text" class="input-button" value="1" />
+                <input
+                  type="text"
+                  class="input-button"
+                  v-model="value"
+                />
                 <button
-                  @click="counter++"
+                  @click="incQuantity"
                   type="button"
                   class="plus-button"
                   title="+"
@@ -77,19 +81,28 @@
 export default {
   name: "Product",
   props: {},
-  data() {
-    return {
-      counter:1
-    }
-  },
   computed: {
     productItem() {
       return this.$store.state.product.productItem;
+    },
+    value: {
+      get() {
+        return this.$store.state.product.productItem.quantity;
+      },
+      set(value) {
+        this.$store.commit("product/setQuantity", value);
+      },
     },
   },
   methods: {
     add(item) {
       this.$store.commit("cart/add", item);
+    },
+    incQuantity(state) {
+      this.$store.commit("product/incQuantity");
+    },
+    decQuantity(state) {
+      this.$store.commit("product/decQuantity");
     },
   },
 };

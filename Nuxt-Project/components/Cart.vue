@@ -79,7 +79,7 @@
                   </div>
                 </li>
                 <li class="nav-items pl-5">
-                  <span class="sepetfiyat"> {{ product.cost }} TL</span>
+                  <span class="sepetfiyat"> {{ product.cost * product.quantity }} TL</span>
                 </li>
                 <li class="nav-items pr-4">
                   <span class="deleteIcon">
@@ -199,7 +199,7 @@ export default {
     },
     decCounter(index) {
       this.$store.commit("cart/decCounter", index);
-    },
+    }
   },
 };
 </script>
