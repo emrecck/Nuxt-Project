@@ -74,13 +74,14 @@
           </div> 
 
           <div class="alisverise-devam-buton col-sm-12 px-0">
+            <nuxt-link to="/allproducts">
             <input
               type="submit"
               name="continueshopping"
               value="Alışverişe Devam Et"
               class="alisverise-devam-input col-sm-12 col-md-4 mb-sm-5"
               id="continue-shopping"
-            />
+            /></nuxt-link>
           </div>
         </div>
 
