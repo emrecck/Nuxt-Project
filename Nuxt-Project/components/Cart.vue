@@ -61,12 +61,11 @@
                 </li>
                 <li class="nav-items pr-4">
                   <span class="deleteIcon">
-                    <button class="border-0 bg-white">
-                      <img
-                        src="../assets/images/sepet/delete_icon.png"
-                        alt=""
-                      />
+
+                    <button @click="remove(product.index)" class="border-0 bg-white">
+                      <img src="../assets/images/sepet/delete_icon.png"/>
                     </button>
+
                   </span>
                 </li>
               </ul>
@@ -172,7 +171,14 @@ export default {
     cart(){
       return this.$store.state.cart.itemList
     },
+  },
+
+  methods: {
+    remove(index){
+      this.$store.commit('cart/remove', index)
+    }
   }
+
 };
 </script>
 
