@@ -71,7 +71,7 @@ export default {
         let temp = ''
         for(let key in data)
         {
-          temp = {...data[key],imgSource: this.image[key].imgSource};
+          temp = {...data[key],imgSource: this.image[key].imgSource,quantity:1};
           list.push(temp)
         }
         this.addProduct(list)

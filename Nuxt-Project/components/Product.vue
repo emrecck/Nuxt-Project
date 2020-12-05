@@ -27,7 +27,7 @@
                   class="minus-button"
                   title="-"
                 ></button>
-                <input type="text" class="input-button" :value="counter" />
+                <input type="text" class="input-button" value="1" />
                 <button
                   @click="counter++"
                   type="button"
@@ -79,9 +79,8 @@ export default {
   props: {},
   data() {
     return {
-      counter: 1,
-      cost: 22.9,
-    };
+      counter:1
+    }
   },
   computed: {
     productItem() {

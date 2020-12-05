@@ -24,7 +24,11 @@
             class="sepet-brown-line w-100"
           />
 
-           <div v-bind:key="product.id" v-for="(product , index) in cart" class="alinan-urunler pt-3">
+          <div
+            v-bind:key="product.id"
+            v-for="(product, index) in cart"
+            class="alinan-urunler pt-3"
+          >
             <div class="list border p-3">
               <ul class="nav d-flex justify-content-between align-items-center">
                 <li class="nav-items">
@@ -39,47 +43,63 @@
                       </a>
                     </div>
                     <div class="productName px-2 d-flex align-items-center">
-                      <a href="#" class="name"> {{product.name}} -- {{ index }}</a>
+                      <a href="#" class="name">
+                        {{ product.name }} -- {{ index }}</a
+                      >
                     </div>
                   </div>
                 </li>
                 <li class="nav-items pl-5 ml-3">
-                  <div class="buttons">
+                  <div class="buttons pb-5 mb-4">
                     <div
                       class="btn-group"
                       role="group"
                       aria-lael="Basic example"
                     >
-                      <button type="button" class="sepetbutton">-</button>
-                      <button type="button" class="sepetbutton">1</button>
-                      <button type="button" class="sepetbutton">+</button>
+                      <button
+                        :disabled="product.quantity <= 1"
+                        @click="decCounter(index)"
+                        type="button"
+                        class="minus-button"
+                        title="-"
+                      ></button>
+                      <input
+                        type="text"
+                        class="input-button"
+                        v-model="product.quantity"
+                      />
+
+                      <button
+                        @click="incCounter(index)"
+                        type="button"
+                        class="plus-button"
+                        title="+"
+                      ></button>
                     </div>
                   </div>
                 </li>
                 <li class="nav-items pl-5">
-                  <span class="sepetfiyat"> {{product.cost}} TL</span>
+                  <span class="sepetfiyat"> {{ product.cost }} TL</span>
                 </li>
                 <li class="nav-items pr-4">
                   <span class="deleteIcon">
-
                     <button @click="remove(index)" class="border-0 bg-white">
-                      <img src="../assets/images/sepet/delete_icon.png"/>
+                      <img src="../assets/images/sepet/delete_icon.png" />
                     </button>
-
                   </span>
                 </li>
               </ul>
             </div>
-          </div> 
+          </div>
 
           <div class="alisverise-devam-buton col-sm-12 px-0">
             <nuxt-link to="/allproducts">
-            <input
-              type="submit"
-              name="continueshopping"
-              value="Alışverişe Devam Et"
-              class="alisverise-devam-input col-sm-12 col-md-4 mb-sm-5"
-              id="continue-shopping"
+              <input
+                type="submit"
+                name="continueshopping"
+                value="Alışverişe Devam Et"
+                class="alisverise-devam-input col-sm-12 col-md-4 mb-sm-5"
+                id="continue-shopping"
             /></nuxt-link>
           </div>
         </div>
@@ -161,24 +181,26 @@
 </template>
 
 <script>
-
-
 export default {
   name: "Cart",
   props: {},
 
   computed: {
-    cart(){
-      return this.$store.state.cart.itemList
+    cart() {
+      return this.$store.state.cart.itemList;
     },
   },
-
   methods: {
-    remove(index){
-      this.$store.commit('cart/remove', index)
-    }
-  }
-
+    remove(index) {
+      this.$store.commit("cart/remove", index);
+    },
+    incCounter(index) {
+      this.$store.commit("cart/incCounter", index);
+    },
+    decCounter(index) {
+      this.$store.commit("cart/decCounter", index);
+    },
+  },
 };
 </script>
 
@@ -245,7 +267,7 @@ export default {
 }
 
 .alisverise-devam-buton {
-  outline:none;
+  outline: none;
   text-align: initial;
   float: left;
   width: 100%;
@@ -264,7 +286,7 @@ export default {
   color: #fff;
   font-size: 15px;
   font-weight: bold;
-  outline:none;
+  outline: none;
 }
 
 .alisverise-devam-input:hover {
@@ -278,7 +300,7 @@ export default {
   color: #fff;
   font-size: 15px;
   font-weight: bold;
-  outline:none;
+  outline: none;
 }
 .urunadi {
   max-width: 100%;
@@ -294,7 +316,7 @@ export default {
 .buttons {
   max-width: 100%;
 }
-.sepetbutton {
+/* .sepetbutton {
   background-image: url(../assets/images/sepet/spinner_bg.png);
   background-clip: border-box;
   background-size: cover;
@@ -304,7 +326,46 @@ export default {
   height: 25px;
   font-size: 1.4rem;
   background-color: transparent;
+<<<<<<< HEAD
   outline: none;
+=======
+} */
+.minus-button {
+  background-image: url("../assets/images/urun/spinner_minus.png");
+  background-clip: border-box;
+  background-size: cover;
+  border: 0;
+  color: #b76f3b;
+  width: 45px;
+  height: 41px;
+  font-size: 1.4rem;
+  background-color: transparent;
+}
+.input-button {
+  text-align: center;
+  background-image: url("../assets/images/urun/spinner_bg.png");
+  background-clip: border-box;
+  background-size: cover;
+  text-align: center;
+  border: 0;
+  color: #b76f3b;
+  width: 45px;
+  height: 41px;
+  font-size: 1.4rem;
+  background-color: transparent;
+}
+.plus-button {
+  background-image: url("../assets/images/urun/spinner_plus.png");
+  background-clip: border-box;
+  background-size: cover;
+  text-align: center;
+  border: 0;
+  color: #b76f3b;
+  width: 45px;
+  height: 41px;
+  font-size: 1.4rem;
+  background-color: transparent;
+>>>>>>> 528510e72d96ee27a9b3a3cf369e73177ba6d27a
 }
 .sepetfiyat {
   font-size: 1.7rem;
@@ -316,7 +377,7 @@ export default {
   background-color: transparent;
 }
 
-.deleteIcon button{
+.deleteIcon button {
   outline: none;
   cursor: pointer;
 }
