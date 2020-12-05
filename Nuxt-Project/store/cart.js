@@ -9,6 +9,6 @@ export const state = () => ({
     },
 
     remove(state, index){
-      state.itemList.splice(state.itemList[index], 1)
+      state.itemList.splice(index, 1)
     }
   }

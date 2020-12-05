@@ -24,7 +24,7 @@
             class="sepet-brown-line w-100"
           />
 
-           <div v-bind:key="product.id" v-for="product in cart" class="alinan-urunler pt-3">
+           <div v-bind:key="product.id" v-for="(product , index) in cart" class="alinan-urunler pt-3">
             <div class="list border p-3">
               <ul class="nav d-flex justify-content-between align-items-center">
                 <li class="nav-items">
@@ -39,7 +39,7 @@
                       </a>
                     </div>
                     <div class="productName px-2 d-flex align-items-center">
-                      <a href="#" class="name"> {{product.name}} </a>
+                      <a href="#" class="name"> {{product.name}} -- {{ index }}</a>
                     </div>
                   </div>
                 </li>
@@ -62,7 +62,7 @@
                 <li class="nav-items pr-4">
                   <span class="deleteIcon">
 
-                    <button @click="remove(product.index)" class="border-0 bg-white">
+                    <button @click="remove(index)" class="border-0 bg-white">
                       <img src="../assets/images/sepet/delete_icon.png"/>
                     </button>
 
@@ -73,13 +73,14 @@
           </div> 
 
           <div class="alisverise-devam-buton col-sm-12 px-0">
+            <nuxt-link to="/allproducts">
             <input
               type="submit"
               name="continueshopping"
               value="Alışverişe Devam Et"
               class="alisverise-devam-input col-sm-12 col-md-4 mb-sm-5"
               id="continue-shopping"
-            />
+            /></nuxt-link>
           </div>
         </div>
 
