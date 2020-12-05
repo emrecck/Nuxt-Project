@@ -114,16 +114,19 @@ export default {
   font-size: 1.2rem;
 }
 .dropdown-buton {
+  outline:none;
   cursor: pointer;
   background: transparent;
   border: 0px;
   padding: 5px 10px;
+  outline: none;
 }
 
 .dropdown-buton:hover {
   cursor: pointer;
   background: transparent;
   border: 0px;
+  outline: none;
 }
 
 .dropdown-buton img {
@@ -139,6 +142,7 @@ export default {
   position: absolute;
   right: 100px;
   top: 50px;
+  outline: none;
 }
 .bar input {
   width: 269px;
@@ -148,6 +152,7 @@ export default {
   border-bottom: 1px solid #dcdcdc;
   color: #d53235;
   padding: 5px 8px;
+  outline: none;
 }
 .bar input[type="text"] ::placeholder {
   color: #d53235;
@@ -157,6 +162,8 @@ export default {
   background-color: white;
   width: 33px;
   height: 33px;
+  outline: none;
+  cursor: pointer;
 }
 .buton img {
   max-width: 100%;

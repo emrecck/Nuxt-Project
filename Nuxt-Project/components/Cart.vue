@@ -244,6 +244,7 @@ export default {
 }
 
 .alisverise-devam-buton {
+  outline:none;
   text-align: initial;
   float: left;
   width: 100%;
@@ -262,6 +263,7 @@ export default {
   color: #fff;
   font-size: 15px;
   font-weight: bold;
+  outline:none;
 }
 
 .alisverise-devam-input:hover {
@@ -275,6 +277,7 @@ export default {
   color: #fff;
   font-size: 15px;
   font-weight: bold;
+  outline:none;
 }
 .urunadi {
   max-width: 100%;
@@ -310,6 +313,12 @@ export default {
 .deleteIcon {
   background-color: transparent;
 }
+
+.deleteIcon button{
+  outline: none;
+  cursor: pointer;
+}
+
 .ara-toplam-kargo-ucreti {
   border: 1px solid #dcdcdc;
 }
@@ -396,10 +405,12 @@ export default {
   color: #fff;
   font-size: 1.7rem;
   font-weight: 500;
+  outline: none;
 }
 .satin-al-input:hover {
   background-color: #62802a;
   transition: background-color 0.4s ease-in 0s;
+  outline: none;
 }
 .min-siparis-tutari p {
   font-size: 15px;
