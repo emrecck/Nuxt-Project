@@ -1,11 +1,22 @@
 <template>
-    <div class="tum-urunler-main col-sm-12 px-0">
-        <div class="col-sm-12">
-          <ul class="side_category_menu col-sm-12">
-            <li v-for="item in list" v-bind:key="item.id"><a href="#">{{ item.name }}</a></li>
-          </ul>
-        </div>
+  <div class="tum-urunler-main col-sm-12 px-0">
+    <div class="col-sm-12">
+      <ul class="side_category_menu col-sm-12">
+        <li v-for="item in list" v-bind:key="item.id">
+          <a @click="toggle(item)" href="#">{{ item.name }}</a>
+          <span v-if="item.show">
+            <div
+              v-for="i in item.subList"
+              v-bind:key="i.id"
+              class="pl-5 sub-item"
+            >
+              <span>{{ i.name }}</span>
+            </div>
+          </span>
+        </li>
+      </ul>
     </div>
+  </div>
 </template>
 
 <script>
@@ -13,64 +24,102 @@ export default {
   name: "Menu",
   props: {},
   data() {
-    return{
-      list:[
+    return {
+      list: [
         {
-          id:0,
-          name:"Aile Boyu"
+          id: 0,
+          name: "Aile Boyu",
+          show: false
         },
         {
-          id:1,
-          name:"Tüm Ürünler"
+          id: 1,
+          name: "Tüm Ürünler",
+          show: false,
         },
         {
-          id:2,
-          name:"Sebze & Meyve"
+          id: 2,
+          name: "Sebze & Meyve",
+          show: true,
+          subList: [
+            {
+              id: 0,
+              name: "Biber",
+            },
+            {
+              id: 1,
+              name: "Domates",
+            },
+          ],
         },
         {
-          id:3,
-          name:"Süt & Peynir"
+          id: 3,
+          name: "Süt & Peynir",
+          show: false,
+          subList: [
+            {
+              id: 0,
+              name: "Süt",
+            },
+            {
+              id: 1,
+              name: "Peynir",
+            },
+          ],
         },
         {
-          id:4,
-          name:"Yumurta & Sucuk"
+          id: 4,
+          name: "Yumurta & Sucuk",
+          show: false
         },
         {
-          id:5,
-          name:"Salça & Turşu"
+          id: 5,
+          name: "Salça & Turşu",
+          show: false
         },
         {
-          id:6,
-          name:"Zeytin & Zeytinyağı"
+          id: 6,
+          name: "Zeytin & Zeytinyağı",
+          show: false
         },
         {
-          id:7,
-          name:"Reçel & Bal"
+          id: 7,
+          name: "Reçel & Bal",
+          show: false
         },
         {
-          id:8,
-          name:"Sebzeler"
+          id: 8,
+          name: "Sebzeler",
+          show: false
         },
         {
-          id:9,
-          name:"Ekmek"
+          id: 9,
+          name: "Ekmek",
+          show: false
         },
-        
+
         {
-          id:10,
-          name:"Meyveler"
-        },
-        {
-          id:11,
-          name:"Hediye Paketleri"
+          id: 10,
+          name: "Meyveler",
+          show: false
         },
         {
-          id:12,
-          name:"Paketler"
-        }
-      ]
+          id: 11,
+          name: "Hediye Paketleri",
+          show: false
+        },
+        {
+          id: 12,
+          name: "Paketler",
+          show: false
+        },
+      ],
+    };
+  },
+  methods: {
+    toggle: function (item) {
+      item.show = !item.show;
     }
-  }
+  },
 };
 </script>
 
@@ -80,7 +129,6 @@ export default {
   padding: 70px 20px 20px 20px;
   background: url(../assets/images/tum-urunler/side_pattern.png);
   position: relative;
-  height: 735px;
   text-align: left;
 }
 
@@ -122,5 +170,13 @@ export default {
 .side_category_menu li a:hover {
   color: #738638;
 }
-
+.sub-item {
+  color: #b67646;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 6px 0;
+  font-size: 19px;
+}
 </style>

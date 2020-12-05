@@ -12,7 +12,8 @@
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "hooper": "^0.3.4",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "vuesax": "^3.12.2"
   },
   "devDependencies": {}
 }
