@@ -9,7 +9,7 @@ export const state = () => ({
       {
         state.itemList.push(item)
       }else{
-
+        state.itemList.find(i =>i.id === item.id).quantity+=1
       }
     },
     remove(state, index){

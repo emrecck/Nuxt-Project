@@ -51,6 +51,6 @@ export const state = () => ({
         state.productItem.quantity+=1
       },
       decQuantity(state){
-        state.productItem.quantity+=1
+        state.productItem.quantity-=1
       }
   }

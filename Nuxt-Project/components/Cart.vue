@@ -5,7 +5,7 @@
         <div class="alisveris-sepetim col-md-8 col-sm-12">
           <h1 class="sepet-baslik">ALIŞVERİŞ SEPETİM</h1>
           <div class="min-miktar-uyarisi">
-            * Minimum sipariş tutarı 60,00 TL
+            * Minimum sipariş tutarı 70,00 TL
           </div>
 
           <img
@@ -34,18 +34,18 @@
                 <li class="nav-items">
                   <div class="urunadi d-flex">
                     <div class="productImg px-2">
-                      <a href="">
+                      <nuxt-link to="/product">
                         <img
+                          @click="addProductItem(product)"
                           class="w-100"
                           v-bind:src="product.imgSource"
                           alt=""
                         />
-                      </a>
+                      </nuxt-link>
                     </div>
                     <div class="productName px-2 d-flex align-items-center">
-                      <a href="#" class="name">
-                        {{ product.name }} -- {{ index }}</a
-                      >
+                      <nuxt-link  to="/product" class="name">
+                        <span @click="addProductItem(product)">{{ product.name }} </span></nuxt-link>
                     </div>
                   </div>
                 </li>
@@ -108,7 +108,7 @@
           <div class="sepet-urun-adedi clearfix p-3">
             <img src="../assets/images/banner/red_basket_icon.png" alt="" />
 
-            <span class="">1 adet ürün var</span>
+            <span class="">{{ count }} adet ürün var</span>
           </div>
 
           <div class="ara-toplam-kargo-ucreti">
@@ -119,16 +119,18 @@
                     >Ara Toplam:</span
                   >
                   <span class="py-3 float-right d-inline-block">
-                    34, <small> 90 TL</small></span
-                  >
+                    <!-- 34, <small> 90 TL</small> -->
+                    {{ listSum }} TL
+                  </span>
                 </div>
               </li>
               <li class="d-inline-block p-3 mx-0">
                 <div class="clearfix">
-                  <span class="py-3 float-left text-left">Kargo Ücreti:</span>
-                  <span class="py-3 float-right text-right">
-                    9, <small> 90 TL</small></span
-                  >
+                  <span class="py-3 float-left text-left" >Kargo Ücreti:</span>
+                  <span class="py-3 float-right text-right" v-if="listSum < 70">
+                    9, <small> 90 TL</small></span>
+                    <span class="py-3 float-right text-right" v-else>
+                    0, <small> 00 TL</small></span>
                 </div>
               </li>
             </ul>
@@ -138,10 +140,12 @@
             <span class="float-left text-left">
               <p>Toplam:</p>
             </span>
-            <span class="float-right text-right">44, <small>80 TL</small></span>
+            <span class="float-right text-right" v-if="listSum < 70">{{ listSum+9.9 }} TL</span>
+            <span class="float-right text-right" v-else>{{ listSum }} TL</span>
+
           </div>
 
-          <div class="indirim-kodu p-3">
+          <div class="indirim-kodu p-3"> 
             <a href="#" class="indirimKodu">İndirim Kodu:</a>
             <div class="row mx-0 px-0">
               <input
@@ -168,9 +172,9 @@
             />
           </div>
 
-          <div class="min-siparis-tutari text-center">
+          <div class="min-siparis-tutari text-center" v-if="listSum < 70">
             <p>
-              Minimum sipariş tutarımız 60,00 TL 'dir.Bu tutarı tamamlayıp,
+              Minimum sipariş tutarımız 70,00 TL 'dir.Bu tutarı tamamlayıp,
               siparişinizi tamamlayabilirsiniz.
             </p>
           </div>
@@ -189,6 +193,18 @@ export default {
     cart() {
       return this.$store.state.cart.itemList;
     },
+    listSum(){
+      let list = this.$store.state.cart.itemList;
+      let listSum =0;
+      for(let i in list)
+      {
+        listSum+= (list[i].cost * list[i].quantity);
+      } 
+      return listSum;
+    },
+    count(){
+      return this.$store.state.cart.itemList.length;
+    }
   },
   methods: {
     remove(index) {
@@ -199,6 +215,9 @@ export default {
     },
     decCounter(index) {
       this.$store.commit("cart/decCounter", index);
+    },
+    addProductItem(product){
+      this.$store.commit("product/addProductItem",product)
     }
   },
 };
