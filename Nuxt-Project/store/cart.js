@@ -1,14 +1,24 @@
 export const state = () => ({
-    itemList : []
+    itemList : [],
   })
 
   export const mutations = {
 
     add(state, item){
-      state.itemList.push(item)
-    },
+      if( !state.itemList.find(i =>i.id ===item.id))
+      {
+        state.itemList.push(item)
+      }else{
 
+      }
+    },
     remove(state, index){
       state.itemList.splice(index, 1)
+    },
+    incCounter(state,index){
+      state.itemList[index].quantity+=1
+    },
+    decCounter(state,index){
+      state.itemList[index].quantity-=1
     }
   }
