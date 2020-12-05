@@ -32,6 +32,10 @@ export const state = () => ({
           {
             id: 7,
             imgSource: require("../assets/images/ürünler/0001236_yayik-tereyagi-500-gr_500.jpeg"),
+          },
+          {
+            id: 8,
+            imgSource: require("../assets/images/ürünler/0001236_yayik-tereyagi-500-gr_500.jpeg"),
           }
     ],
     productItem:''

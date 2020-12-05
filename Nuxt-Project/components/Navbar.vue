@@ -1,8 +1,8 @@
 <template>
   <div class="col-sm-12 banner px-0">
     <div class="col-sm-12 my-2">
-      <nav class="kategoriler col-sm-12 ">
-        <div class="container navbar sticky-top">
+      <nav class="navbar navbar-default" data-spy="affix" data-offset-top="197">
+        <div class="container">
           <ul class="nav d-flex justify-content-around col-sm-12 ">
             <li class="nav-items">
               <nuxt-link to="/"><div class="anasayfa"></div></nuxt-link>
@@ -55,11 +55,21 @@ export default {
   max-width: 1140px;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
+
+  .affix {
+    top:0;
+    width: 100%;
+    z-index: 9999 !important;
+  }
+  .navbar {
+    margin-bottom: 0px;
+  }
+
+  .affix ~ .container-fluid {
+   position: relative;
+   top: 50px;
+  }
+
 
 .bottom-banner {
   background: url(../assets/images/banner/nav_bg.png);

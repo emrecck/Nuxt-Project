@@ -52,6 +52,7 @@ export default {
   },
   methods: {
     addItem(item){
+      alert('Ürün Sepete Eklendi');
       this.$store.commit('cart/add', item);
     },
     addProduct(product){
