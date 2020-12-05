@@ -43,5 +43,14 @@ export const state = () => ({
       },
       addProductItem(state,productItem){
         state.productItem = productItem;
+      },
+      setQuantity(state,value){
+        state.productItem.quantity = value;
+      },
+      incQuantity(state){
+        state.productItem.quantity+=1
+      },
+      decQuantity(state){
+        state.productItem.quantity+=1
       }
   }
