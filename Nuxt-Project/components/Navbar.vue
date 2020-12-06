@@ -161,12 +161,8 @@ export default {
   background-color: transparent;
   max-width: 100%;
   height: 50px;
-<<<<<<< HEAD
   width: 50px;
-=======
-  width: 45px;
   transition:all 0.2s ease-in 0s;  
->>>>>>> c3d27abe4803baef2b13a509f95fd24a2c0e8a45
 }
 
 .anasayfa:hover {

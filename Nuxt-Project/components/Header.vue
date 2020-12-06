@@ -175,6 +175,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.dropdown button{
+  outline: none;
+}
+
 .totalPrice {
   color: #d53235;
   font-size: 1.8rem;
@@ -238,6 +243,7 @@ export default {
   position: absolute;
   bottom: 0;
   display: block;
+  outline: none;
 }
 .dropdown-bottom::before {
   content: "";
