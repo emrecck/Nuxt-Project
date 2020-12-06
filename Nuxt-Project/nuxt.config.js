@@ -14,12 +14,15 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: "stylesheet", type: "text/css", href: "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,400;0,500;0,600;0,700;0,900;1,300&display=swap" }
+      
     ]
   },
   script: [
     { src: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js' },
     { src: 'https://code.jquery.com/jquery-3.3.1.slim.min.js' },
-    { src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js' }
+    { src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js' },
+    { src: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js' },
+    { src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'}
   ],
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [

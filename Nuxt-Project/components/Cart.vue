@@ -163,13 +163,14 @@
           </div>
 
           <div class="satin-al mb-5 clearfix">
+            <nuxt-link to="/bill">
             <input
               type="button"
               name="checkout"
               value="SATIN AL"
               class="satin-al-input"
-              onclick="location.href='/checkout';"
             />
+            </nuxt-link>
           </div>
 
           <div class="min-siparis-tutari text-center" v-if="listSum < 70">
