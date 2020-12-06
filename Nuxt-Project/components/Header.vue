@@ -29,16 +29,10 @@
             <div class="dropdown">
               <button
                 @click="dropdown = !dropdown"
-                class="dropdown-buton dropdown-toggle"
-                id="dropdownMenuButton"
-                data-toggle="dropdown"
-                type="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
+                class="btn dropdown-buton dropdown-toggle">
                 <img src="../assets/images/banner/red_basket_icon.png" alt="" />
                 <span class="totalPrice" v-if="cart.length > 0">
-                  {{ total }} TL
+                  {{ total.toFixed(2) }} TL
                 </span>
                 <span class="totalPrice" v-else>0,00 Tl</span>
               </button>
@@ -62,9 +56,11 @@
                         v-bind:key="item.id"
                       >
                         <td class="col-sm-3 py-3 img">
-                          <img v-bind:src="item.imgSource" width="80" alt="" />
+                          <nuxt-link to="/product">
+                            <img @click="addProductItem(item)" v-bind:src="item.imgSource" width="80" alt="" />
+                          </nuxt-link>
                         </td>
-                        <td class="col-sm-4 py-3 name">{{ item.name }}</td>
+                        <td class="col-sm-4 py-3 name"><nuxt-link to="/product" class="text-dark"><span @click="addProductItem(item)">{{ item.name }}</span></nuxt-link></td>
                         <td class="col-sm-3 py-3 cost">{{ (item.cost*item.quantity).toFixed(2) }} TL</td>
                         <td class="col-sm-2 py-3 delete">
                           <button
@@ -170,7 +166,10 @@ export default {
     remove(index) {
       this.$store.commit("cart/remove", index);
     },
-  },
+    addProductItem(productItem){
+      this.$store.commit('product/addProductItem',productItem)
+    }
+  }
 };
 </script>
 
