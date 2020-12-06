@@ -8,6 +8,7 @@
       style="height: 300px"
       :infiniteScroll="true"
       :transition="3000"
+      :wheelControl="false"
     >
       <slide class="slide"
         ><img class="images" src="../assets/images/banner150-137-.jpg" alt=""
@@ -52,6 +53,7 @@ export default {
   max-width: 100%;
   width: 100%;
   height: 100%;
+  cursor:pointer;
 }
 .slide{
   max-width:100%;
