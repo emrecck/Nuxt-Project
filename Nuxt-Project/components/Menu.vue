@@ -39,7 +39,7 @@ export default {
         {
           id: 2,
           name: "Sebze & Meyve",
-          show: true,
+          show: false,
           subList: [
             {
               id: 0,

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <div class="fatura">
+    <div class="container">
         <Bill />
     </div>
   </div>
@@ -19,13 +19,5 @@ export default {
 </script>
 
 <style>
-.container {
-  max-width: 1400px;
-}
 
-.fatura{
-    margin-right: 650px;
-    margin-top: 200px;
-    margin-bottom: 200px;
-}
 </style>

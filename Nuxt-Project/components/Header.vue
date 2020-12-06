@@ -65,7 +65,7 @@
                           <img v-bind:src="item.imgSource" width="80" alt="" />
                         </td>
                         <td class="col-sm-4 py-3 name">{{ item.name }}</td>
-                        <td class="col-sm-3 py-3 cost">{{ item.cost }} TL</td>
+                        <td class="col-sm-3 py-3 cost">{{ item.cost*item.quantity }} TL</td>
                         <td class="col-sm-2 py-3 delete">
                           <button
                             @click="remove(index)"
@@ -94,7 +94,7 @@
                             </button>
                           
                             <button class="ml-2 col-4 buy-button">
-                              <nuxt-link to="/cart" class="text-white text-decoration-none">
+                              <nuxt-link to="/bill" class="text-white text-decoration-none">
                                 SATIN AL
                               </nuxt-link>
                             </button>
@@ -161,7 +161,7 @@ export default {
       let temp = this.$store.state.cart.itemList;
       let total = 0;
       for (let index in temp) {
-        total += temp[index].cost;
+        total += (temp[index].cost * temp[index].quantity);
       }
       return total;
     },
