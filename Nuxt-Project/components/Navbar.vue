@@ -65,6 +65,7 @@ export default {
   background-color: transparent;
   height: 50px;
   width: 65px;
+  transition:all 0.2s ease-in 0s;  
 }
 
 .ciftlik {
@@ -74,6 +75,7 @@ export default {
   max-width: 100%;
   height: 50px;
   width: 45px;
+  transition:all 0.2s ease-in 0s;  
 }
 
 .tum-urunler {
@@ -84,6 +86,7 @@ export default {
   max-width: 100%;
   height: 50px;
   width: 80px;
+  transition:all 0.2s ease-in 0s;  
 }
 
 .domates-biber {
@@ -94,6 +97,7 @@ export default {
   max-width: 100%;
   height: 50px;
   width: 100px;
+  transition:all 0.2s ease-in 0s;  
 }
 
 .sut-peynir {
@@ -104,6 +108,7 @@ export default {
   max-width: 100%;
   height: 50px;
   width: 70px;
+  transition:all 0.2s ease-in 0s;  
 }
 
 .yumurta-sucuk {
@@ -113,6 +118,7 @@ export default {
   max-width: 100%;
   height: 50px;
   width: 100px;
+  transition:all 0.2s ease-in 0s;  
 }
 
 .salca-tursu {
@@ -123,6 +129,7 @@ export default {
   max-width: 100%;
   height: 50px;
   width: 90px;
+  transition:all 0.2s ease-in 0s;  
 }
 
 .zeytin-zeytinyagi {
@@ -133,6 +140,7 @@ export default {
   max-width: 100%;
   height: 50px;
   width: 120px;
+  transition:all 0.2s ease-in 0s;  
 }
 
 .recel-bal {
@@ -143,6 +151,7 @@ export default {
   max-width: 100%;
   height: 50px;
   width: 80px;
+  transition:all 0.2s ease-in 0s;  
 }
 
 .ekmek {
@@ -153,6 +162,7 @@ export default {
   max-width: 100%;
   height: 50px;
   width: 45px;
+  transition:all 0.2s ease-in 0s;  
 }
 
 .anasayfa:hover {
