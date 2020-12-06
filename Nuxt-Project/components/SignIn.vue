@@ -62,7 +62,7 @@ export default {
 .main-uye-girisi {
   background: url(../assets/images/uye-olun/login_bg.jpg) no-repeat center;
   background-attachment: fixed;
-  background-size: contain;
+  background-size: cover;
 
 }
 
