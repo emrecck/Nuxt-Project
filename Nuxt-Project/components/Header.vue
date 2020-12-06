@@ -369,4 +369,8 @@ export default {
   width: 15px;
   height: 15px;
 }
+.dropdown-buton[data-v-1a9bb128]:focus {
+    outline: 0;
+    box-shadow: none;
+}
 </style>
