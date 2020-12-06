@@ -8,31 +8,31 @@
               <nuxt-link to="/"><div class="anasayfa"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
-              <a class="" href="#"><div class="ciftlik"></div></a>
+              <nuxt-link to="/"><div class="ciftlik"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
               <nuxt-link to="/allproducts"><div class="tum-urunler"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
-              <a class="" href="#"><div class="domates-biber"></div></a>
+              <nuxt-link to="/allproducts"><div class="domates-biber"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
-              <a class="" href="#"><div class="sut-peynir"></div></a>
+              <nuxt-link to="/allproducts"><div class="sut-peynir"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
-              <a class="" href="#"><div class="yumurta-sucuk"></div></a>
+              <nuxt-link to="/allproducts"><div class="yumurta-sucuk"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
-              <a class="" href="#"><div class="salca-tursu"></div></a>
+              <nuxt-link to="/allproducts"><div class="salca-tursu"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
-              <a class="" href="#"><div class="zeytin-zeytinyagi"></div></a>
+              <nuxt-link to="/allproducts"><div class="zeytin-zeytinyagi"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
-              <a class="" href="#"><div class="recel-bal"></div></a>
+              <nuxt-link to="/allproducts"><div class="recel-bal"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
-              <a class="" href="#"><div class="ekmek"></div></a>
+              <nuxt-link to="/allproducts"><div class="ekmek"></div></nuxt-link>
             </li>
           </ul>
         </div>

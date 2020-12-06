@@ -306,7 +306,7 @@ export default {
   z-index: 10000;
   right: 60px;
   top: 0px;
-  width: 500px;
+  width: 550px;
   position: absolute;
   font-size: 1.5rem;
   font-weight: bold;
