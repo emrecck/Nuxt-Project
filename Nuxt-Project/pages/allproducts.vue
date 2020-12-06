@@ -4,11 +4,11 @@
 
       <div class="container pt-5">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <Menu/>
             </div>
 
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <AllProducts/>
             </div>
         </div>

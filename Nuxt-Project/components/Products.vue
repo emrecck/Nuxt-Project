@@ -45,9 +45,9 @@
 </template>
 
 <script>
-import Vue from "vue";
-import VueSimpleAlert from "vue-simple-alert";
-Vue.use(VueSimpleAlert);
+// import Vue from "vue";
+// import VueSimpleAlert from "vue-simple-alert";
+// Vue.use(VueSimpleAlert);
 
 import axios from "axios";
 import { mapMutations } from "vuex";

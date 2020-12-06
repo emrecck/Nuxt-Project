@@ -127,7 +127,7 @@ export default {
 <style scoped>
 
 .tum-urunler-main{
-  width: 330px;
+
 }
 
 .side_category_menu {
@@ -156,7 +156,7 @@ export default {
 
 .side_category_menu li:after {
   content: "";
-  width: 240px;
+  width: 100%;
   height: 3px;
   background: url(../assets/images/tum-urunler/side_item_border.png) no-repeat;
   display: block;
