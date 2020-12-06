@@ -1,16 +1,19 @@
 <template>
   <div class="tum-urunler-main col-sm-12 px-0">
     <div class="col-sm-12">
-      <ul class="side_category_menu col-sm-12">
-        <li v-for="item in list" v-bind:key="item.id">
-          <a @click="toggle(item)" href="#">{{ item.name }}</a>
+      <ul id="side_category_menu" class="side_category_menu col-sm-12">
+        <li :id="item.id" class="list-item" v-for="item in list" v-bind:key="item.id">
+          <nuxt-link to="/allproducts" v-if="item.id == 1"><span @click="toggle(item)"  class="item-name active">{{ item.name }}</span></nuxt-link>
+          <nuxt-link to="/allproducts" v-else ><span @click="toggle(item)" class="item-name"> {{ item.name }} </span></nuxt-link>
           <span v-if="item.show">
             <div
               v-for="i in item.subList"
               v-bind:key="i.id"
               class="pl-5 sub-item"
             >
-              <span>{{ i.name }}</span>
+            <nuxt-link to="/allproducts">
+              <span class="sub-item">{{ i.name }}</span>
+            </nuxt-link>
             </div>
           </span>
         </li>
@@ -29,17 +32,20 @@ export default {
         {
           id: 0,
           name: "Aile Boyu",
-          show: false
+          show: false,
+          active:false
         },
         {
           id: 1,
           name: "Tüm Ürünler",
           show: false,
+          active:true
         },
         {
           id: 2,
           name: "Sebze & Meyve",
           show: false,
+          active:false,
           subList: [
             {
               id: 0,
@@ -55,6 +61,7 @@ export default {
           id: 3,
           name: "Süt & Peynir",
           show: false,
+          active:false,
           subList: [
             {
               id: 0,
@@ -69,80 +76,102 @@ export default {
         {
           id: 4,
           name: "Yumurta & Sucuk",
-          show: false
+          show: false,
+          active:false
         },
         {
           id: 5,
           name: "Salça & Turşu",
-          show: false
+          show: false,
+          active:false
         },
         {
           id: 6,
           name: "Zeytin & Zeytinyağı",
-          show: false
+          show: false,
+          active:false
         },
         {
           id: 7,
           name: "Reçel & Bal",
-          show: false
+          show: false,
+          active:false
         },
         {
           id: 8,
           name: "Sebzeler",
-          show: false
+          show: false,
+          active:false
         },
         {
           id: 9,
           name: "Ekmek",
-          show: false
+          show: false,
+          active:false
         },
 
         {
           id: 10,
           name: "Meyveler",
-          show: false
+          show: false,
+          active:false
         },
         {
           id: 11,
           name: "Hediye Paketleri",
-          show: false
+          show: false,
+          active:false
         },
         {
           id: 12,
           name: "Paketler",
-          show: false
+          show: false,
+          active:false
         },
       ],
     };
   },
   methods: {
     toggle: function (item) {
+      item.active = !item.active;
       item.show = !item.show;
-    }
+      var liContainer = document.getElementById("side_category_menu");
+      var lis = document.getElementsByClassName("list-item");
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].addEventListener("click",function(){
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.getElementsByClassName("item-name")[0].className += " active";
+        })
+      }
+    },
+    makeActive() {
+      var liContainer = document.getElementById("side_category_menu");
+
+      // Get all buttons with class="btn" inside the container
+      var lis = liContainer.getElementsByClassName("list-item");
+
+      // Loop through the buttons and add the active class to the current/clicked button
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].addEventListener("click", function () {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
+      }
+    },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-.tum-urunler-main{
-
-}
-
 .side_category_menu {
-
   padding: 70px 20px 20px 20px;
   background: url(../assets/images/tum-urunler/side_pattern.png);
   position: relative;
   text-align: left;
 }
-
-.side_category_menu li {
-  margin-bottom: 0;
-  list-style-type: none;
-}
-
 .side_category_menu:before {
   background: url(../assets/images/tum-urunler/urunlerimiz_tabela.png) no-repeat;
   content: "";
@@ -153,7 +182,10 @@ export default {
   left: -6px;
   top: -8px;
 }
-
+.side_category_menu li {
+  margin-bottom: 0;
+  list-style-type: none;
+}
 .side_category_menu li:after {
   content: "";
   width: 100%;
@@ -176,13 +208,14 @@ export default {
 .side_category_menu li a:hover {
   color: #738638;
 }
+.side_category_menu li span.active,.sub-item{
+  color: #738638;
+}
 .sub-item {
-  color: #b67646;
   letter-spacing: 1px;
   text-decoration: none;
   font-weight: bold;
   display: block;
-  padding: 6px 0;
   font-size: 19px;
 }
 </style>
