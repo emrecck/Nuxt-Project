@@ -30,27 +30,27 @@
             class="alinan-urunler pt-3"
           >
             <div class="list border p-3">
-              <ul class="nav d-flex justify-content-between align-items-center">
-                <li class="nav-items">
+              <ul class="nav d-flex col-sm-12 align-items-center text-center">
+                <li class="nav-items col-sm-5 px-0">
                   <div class="urunadi d-flex">
-                    <div class="productImg px-2">
+                    <div class="productImg p-0">
                       <nuxt-link to="/product">
                         <img
                           @click="addProductItem(product)"
-                          class="w-100"
+                          width="100"
                           v-bind:src="product.imgSource"
                           alt=""
                         />
                       </nuxt-link>
                     </div>
-                    <div class="productName px-2 d-flex align-items-center">
+                    <div class="productName py-5 px-4">
                       <nuxt-link  to="/product" class="name">
                         <span @click="addProductItem(product)">{{ product.name }} </span></nuxt-link>
                     </div>
                   </div>
                 </li>
-                <li class="nav-items pl-5 ml-3">
-                  <div class="buttons pb-5 mb-4">
+                <li class="nav-items col-sm-3">
+                  <div class="buttons">
                     <div
                       class="btn-group"
                       role="group"
@@ -78,10 +78,10 @@
                     </div>
                   </div>
                 </li>
-                <li class="nav-items pl-5">
+                <li class="nav-items col-sm-3">
                   <span class="sepetfiyat"> {{ (product.cost * product.quantity).toFixed(2) }} TL</span>
                 </li>
-                <li class="nav-items pr-4">
+                <li class="nav-items col-sm-1">
                   <span class="deleteIcon">
                     <button @click="remove(index)" class="border-0 bg-white">
                       <img src="../assets/images/sepet/delete_icon.png" />
@@ -325,12 +325,9 @@ export default {
 .urunadi {
   max-width: 100%;
 }
-.productImg {
-  width: 75px;
-}
 .productName .name {
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: 1.6rem;
+  font-weight: 600;
   color: inherit;
 }
 .buttons {
