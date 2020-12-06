@@ -79,7 +79,7 @@
                   </div>
                 </li>
                 <li class="nav-items pl-5">
-                  <span class="sepetfiyat"> {{ product.cost * product.quantity }} TL</span>
+                  <span class="sepetfiyat"> {{ (product.cost * product.quantity).toFixed(2) }} TL</span>
                 </li>
                 <li class="nav-items pr-4">
                   <span class="deleteIcon">
@@ -120,7 +120,7 @@
                   >
                   <span class="py-3 float-right d-inline-block">
                     <!-- 34, <small> 90 TL</small> -->
-                    {{ listSum }} TL
+                    {{ listSum.toFixed(2) }} TL
                   </span>
                 </div>
               </li>
@@ -140,8 +140,8 @@
             <span class="float-left text-left">
               <p>Toplam:</p>
             </span>
-            <span class="float-right text-right" v-if="listSum < 70">{{ listSum+9.9 }} TL</span>
-            <span class="float-right text-right" v-else>{{ listSum }} TL</span>
+            <span class="float-right text-right" v-if="listSum < 70">{{ (listSum+9.9).toFixed(2) }} TL</span>
+            <span class="float-right text-right" v-else>{{ listSum.toFixed(2) }} TL</span>
 
           </div>
 

@@ -65,7 +65,7 @@
                           <img v-bind:src="item.imgSource" width="80" alt="" />
                         </td>
                         <td class="col-sm-4 py-3 name">{{ item.name }}</td>
-                        <td class="col-sm-3 py-3 cost">{{ item.cost*item.quantity }} TL</td>
+                        <td class="col-sm-3 py-3 cost">{{ (item.cost*item.quantity).toFixed(2) }} TL</td>
                         <td class="col-sm-2 py-3 delete">
                           <button
                             @click="remove(index)"
@@ -82,7 +82,7 @@
                       <div class="col-5 clearfix">
                         <span
                           class="col-sm-12 px-0 text-left float-left ara-toplam"
-                          >Ara Toplam: {{ total }} TL</span
+                          >Ara Toplam: {{ total.toFixed(2) }} TL</span
                         >
                       </div>
                       <div class="col-7 px-0">
