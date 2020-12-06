@@ -345,12 +345,16 @@ export default {
   border: 1px solid #eee;
   background: url(../assets/images/banner/search_input_bg.png);
   border-bottom: 1px solid #dcdcdc;
-  color: #d53235;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #E23943;
   padding: 5px 8px;
   outline: none;
 }
-.bar input[type="text"] ::placeholder {
-  color: #d53235;
+.bar input::-webkit-input-placeholder {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #E23943;
 }
 .buton button {
   border: 0px;
