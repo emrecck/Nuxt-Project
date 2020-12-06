@@ -45,9 +45,9 @@
 </template>
 
 <script>
-// import Vue from "vue";
-// import VueSimpleAlert from "vue-simple-alert";
-// Vue.use(VueSimpleAlert);
+import Vue from "vue";
+import VueSimpleAlert from "vue-simple-alert";
+Vue.use(VueSimpleAlert);
 
 import axios from "axios";
 import { mapMutations } from "vuex";
@@ -139,11 +139,6 @@ img {
     border: 0px;
     background-color: transparent;
 } */
-
-.at-sepete-button img {
-  /* height: 36px;
-    width: 115px; */
-}
 
 .at-sepete-buton:active,
 .at-sepete-buton:focus {

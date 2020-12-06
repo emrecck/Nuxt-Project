@@ -39,6 +39,42 @@
                     <input type="password" required />
                     <span class="required-1">*</span>
                   </div>
+
+                  <div
+                    class="g-recaptcha"
+                    data-sitekey="6LerlNkZAAAAAGPceTJZN6bVeXvUo4rLF0o7emU-"
+                    style="margin-top: 20px"
+                  >
+                    <div style="width: 304px; height: 78px">
+                      <div>
+                        <iframe
+                          src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LerlNkZAAAAAGPceTJZN6bVeXvUo4rLF0o7emU-&amp;co=aHR0cHM6Ly93d3cuaGFzYW5iZXkuY29tOjQ0Mw..&amp;hl=tr&amp;v=UFwvoDBMjc8LiYc1DKXiAomK&amp;size=normal&amp;cb=k9j6j6ddcw8"
+                          width="304"
+                          height="78"
+                          role="presentation"
+                          name="a-qnts3ews59dv"
+                          frameborder="0"
+                          scrolling="no"
+                          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"
+                        ></iframe>
+                      </div>
+                      <textarea
+                        id="g-recaptcha-response"
+                        name="g-recaptcha-response"
+                        class="g-recaptcha-response"
+                        style="
+                          width: 250px;
+                          height: 40px;
+                          border: 1px solid rgb(193, 193, 193);
+                          margin: 10px 25px;
+                          padding: 0px;
+                          resize: none;
+                          display: none;
+                        "
+                      ></textarea>
+                    </div>
+                    <iframe style="display: none"></iframe>
+                  </div>
                 </div>
 
                 <div class="en-alt text-left pt-5">
@@ -64,16 +100,15 @@
                     <span>Kabul ediyorum.</span>
                   </div>
                   <div class="text-center py-5">
-                      <input
-                    type="submit"
-                    id="register-button"
-                    class="uye-olun-buton col-sm-9"
-                    value="Kaydet"
-                    name="register-button"
-                    form="myform"
-                  />
+                    <input
+                      type="submit"
+                      id="register-button"
+                      class="uye-olun-buton col-sm-9"
+                      value="Kaydet"
+                      name="register-button"
+                      form="myform"
+                    />
                   </div>
-                
                 </div>
               </form>
             </div>
@@ -82,7 +117,6 @@
         <div class="col-xs-12 col-md-7 pt-5">
           <div class="zaten-uye-misin">
             <div class="zaten-uye-misin-kart">
-
               <div class="zaten-uye-misin-bilgi">
                 <h2>Hasanbey.com'a üye olduğunuzda;</h2>
                 <p>
@@ -104,10 +138,13 @@
               <div class="zaten-uye-misin-buton text-center py-5">
                 <h4>Zaten üye misiniz?</h4>
                 <a href="uye-girisi-page.html">
-                  <input class="giris-yap col-md-4 col-sm-4" type="button" value="Giriş Yap >" />
+                  <input
+                    class="giris-yap col-md-4 col-sm-4"
+                    type="button"
+                    value="Giriş Yap >"
+                  />
                 </a>
               </div>
-
             </div>
           </div>
         </div>
@@ -181,17 +218,18 @@ export default {
 
 .giris-yap:hover {
   background: #bf3b3f;
-  transition: background-color .3s ease-out 0s;
+  transition: background-color 0.3s ease-out 0s;
 }
 
 .uye-olun-baslik-1 {
   color: #b76f3b;
   position: absolute;
-  top: -50px;
+  top: -43px;
   left: 0;
   right: 0;
   text-align: center;
   font-size: 2.5rem;
+  font-weight: 600;
 }
 .uye-olun-baslik-1::after {
   content: "";
@@ -199,7 +237,8 @@ export default {
   widows: 204px;
   height: 4px;
   display: block;
-  margin: 10px 0px 0 120px;
+  margin-top: 10px;
+  margin-left: 170px;
 }
 .uye-olun-baslik-2 {
   color: #b76f3b;
@@ -257,7 +296,7 @@ export default {
   color: #886f5d !important;
   font-size: 1.3rem;
 }
-.en-alt div input{
+.en-alt div input {
   margin-right: 10px;
 }
 .uye-olun-buton {
@@ -271,6 +310,6 @@ export default {
 
 .uye-olun-buton:hover {
   background: #62802a;
-  transition: background-color .3s ease-out ;
+  transition: background-color 0.3s ease-out;
 }
 </style>

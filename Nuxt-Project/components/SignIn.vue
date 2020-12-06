@@ -78,6 +78,7 @@ export default {
 .login-text {
   color: #b76f3b;
   font-size: 2.5rem;
+  font-weight: 600;
   position: absolute;
   top: -50px;
   text-align: center;
