@@ -29,7 +29,8 @@
             <div class="dropdown">
               <button
                 @click="dropdown = !dropdown"
-                class="btn dropdown-buton dropdown-toggle">
+                class="btn dropdown-buton dropdown-toggle"
+              >
                 <img src="../assets/images/banner/red_basket_icon.png" alt="" />
                 <span class="totalPrice" v-if="cart.length > 0">
                   {{ total.toFixed(2) }} TL
@@ -57,11 +58,24 @@
                       >
                         <td class="col-sm-3 py-3 img">
                           <nuxt-link to="/product">
-                            <img @click="addProductItem(item)" v-bind:src="item.imgSource" width="80" alt="" />
+                            <img
+                              @click="addProductItem(item)"
+                              v-bind:src="item.imgSource"
+                              width="80"
+                              alt=""
+                            />
                           </nuxt-link>
                         </td>
-                        <td class="col-sm-4 py-3 name"><nuxt-link to="/product" class="text-dark"><span @click="addProductItem(item)">{{ item.name }}</span></nuxt-link></td>
-                        <td class="col-sm-3 py-3 cost">{{ (item.cost*item.quantity).toFixed(2) }} TL</td>
+                        <td class="col-sm-4 py-3 name">
+                          <nuxt-link to="/product" class="text-dark"
+                            ><span @click="addProductItem(item)">{{
+                              item.name
+                            }}</span></nuxt-link
+                          >
+                        </td>
+                        <td class="col-sm-3 py-3 cost">
+                          {{ (item.cost * item.quantity).toFixed(2) }} TL
+                        </td>
                         <td class="col-sm-2 py-3 delete">
                           <button
                             @click="remove(index)"
@@ -83,18 +97,23 @@
                       </div>
                       <div class="col-7 px-0">
                         <div class="row px-0">
-                            <button class="col-7 show-cart-button">
-                              <nuxt-link to="/cart" class="text-white text-decoration-none">
-                                Sepetimi Göster
-                              </nuxt-link>
-                            </button>
-                          
-                            <button class="ml-2 col-4 buy-button">
-                              <nuxt-link to="/bill" class="text-white text-decoration-none">
-                                SATIN AL
-                              </nuxt-link>
-                            </button>
-                          
+                          <button class="col-7 show-cart-button">
+                            <nuxt-link
+                              to="/cart"
+                              class="text-white text-decoration-none"
+                            >
+                              Sepetimi Göster
+                            </nuxt-link>
+                          </button>
+
+                          <button class="ml-2 col-4 buy-button">
+                            <nuxt-link
+                              to="/bill"
+                              class="text-white text-decoration-none"
+                            >
+                              SATIN AL
+                            </nuxt-link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -120,13 +139,19 @@
         <div class="arama-bar">
           <div class="row">
             <div class="bar col px-0">
-              <input type="text" placeholder="Yumurta, Domates, Süt..." />
+              <input
+                v-model="search"
+                type="text"
+                placeholder="Yumurta, Domates, Süt..."
+              />
             </div>
             <div class="buton col px-0">
-              <button type="button">
+              <button type="button" @click="addProduct(searched)">
                 <img src="../assets/images/banner/red_magnifier_icon.png" />
               </button>
             </div>
+            <!-- <label for="">{{search}}</label>
+            <label for="">{{ searched[0].name }}</label> -->
           </div>
         </div>
       </div>
@@ -147,6 +172,7 @@ export default {
   data() {
     return {
       dropdown: false,
+      search: "",
     };
   },
   computed: {
@@ -157,19 +183,27 @@ export default {
       let temp = this.$store.state.cart.itemList;
       let total = 0;
       for (let index in temp) {
-        total += (temp[index].cost * temp[index].quantity);
+        total += temp[index].cost * temp[index].quantity;
       }
       return total;
+    },
+    searched() {
+      return this.$store.state.product.productList.filter((item) =>
+        item.name.toLowerCase().includes(this.search.toLowerCase())
+      );
     },
   },
   methods: {
     remove(index) {
       this.$store.commit("cart/remove", index);
     },
-    addProductItem(productItem){
-      this.$store.commit('product/addProductItem',productItem)
-    }
-  }
+    addProductItem(productItem) {
+      this.$store.commit("product/addProductItem", productItem);
+    },
+    addProduct(state, product) {
+      this.$store.commit("product/addProduct", product);
+    },
+  },
 };
 </script>
 
