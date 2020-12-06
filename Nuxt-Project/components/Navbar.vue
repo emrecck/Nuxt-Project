@@ -161,11 +161,7 @@ export default {
   background-color: transparent;
   max-width: 100%;
   height: 50px;
-<<<<<<< HEAD
   width: 50px;
-=======
-  width: 45px;
->>>>>>> b3136635dd517f6ece0d373bb1b8c2ba18c4919a
   transition:all 0.2s ease-in 0s;  
 }
 
@@ -267,6 +263,6 @@ export default {
   background-color: transparent;
   max-width: 100%;
   height: 50px;
-  width: 45px;
+  width: 50px;
 }
 </style>

@@ -35,6 +35,7 @@
                   <img src="../assets/images/banner/at_sepete_sprite.png" />
                   <!-- </a> -->
                 </button>
+                <modal name="example">This is an example</modal>
               </div>
             </div>
           </div>
@@ -45,9 +46,11 @@
 </template>
 
 <script>
-// import Vue from "vue";
-// import VueSimpleAlert from "vue-simple-alert";
-// Vue.use(VueSimpleAlert);
+import Vue from "vue";
+import VueSimpleAlert from "vue-simple-alert";
+
+Vue.use(VueSimpleAlert);
+Vue.use(VModal);
 
 import axios from "axios";
 import { mapMutations } from "vuex";
