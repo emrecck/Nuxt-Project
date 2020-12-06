@@ -125,7 +125,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.tum-urunler-main{
+  width: 330px;
+}
+
 .side_category_menu {
+
   padding: 70px 20px 20px 20px;
   background: url(../assets/images/tum-urunler/side_pattern.png);
   position: relative;
@@ -144,7 +150,7 @@ export default {
   width: 500px;
   height: 66px;
   position: absolute;
-  left: 5px;
+  left: -6px;
   top: -8px;
 }
 

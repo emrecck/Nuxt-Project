@@ -1,12 +1,21 @@
 <template>
   <div class="products col-sm-12">
     <div class="row">
-      <div class="col-sm-3 px-0 p-2" v-for="item in product" v-bind:key="item.id">
+      <div
+        class="col-sm-3 px-0 p-2"
+        v-for="item in product"
+        v-bind:key="item.id"
+      >
         <div class="col-sm-12 p-3 border-layer">
           <div class="col-sm-12 px-0 urun">
             <div class="col-sm-12 p-0">
               <a href="#">
-                <nuxt-link to="/product"><img @click="addProductItem(item)" class="urun-img" v-bind:src="item.imgSource" /></nuxt-link>
+                <nuxt-link to="/product"
+                  ><img
+                    @click="addProductItem(item)"
+                    class="urun-img"
+                    v-bind:src="item.imgSource"
+                /></nuxt-link>
               </a>
             </div>
 
@@ -23,7 +32,7 @@
 
                 <button @click="addItem(item)" class="col-sm-6 at-sepete-buton">
                   <!-- <a class="col-sm-6 at-sepete-buton"> -->
-                    <img src="../assets/images/banner/at_sepete_sprite.png" />
+                  <img src="../assets/images/banner/at_sepete_sprite.png" />
                   <!-- </a> -->
                 </button>
               </div>
@@ -36,31 +45,35 @@
 </template>
 
 <script>
+import Vue from "vue";
+import VueSimpleAlert from "vue-simple-alert";
+Vue.use(VueSimpleAlert);
+
 import axios from "axios";
 import { mapMutations } from "vuex";
 
 export default {
   name: "Products",
   props: {},
-  computed:{
-    product(){
-      return this.$store.state.product.productList
+  computed: {
+    product() {
+      return this.$store.state.product.productList;
     },
-    image(){
-      return this.$store.state.product.imageList
-    }
+    image() {
+      return this.$store.state.product.imageList;
+    },
   },
   methods: {
-    addItem(item){
-      alert('Ürün Sepete Eklendi');
-      this.$store.commit('cart/add', item);
+    addItem(item) {
+      // this.$alert("Ürününüz sepete eklendi.");
+      this.$store.commit("cart/add", item);
     },
-    addProduct(product){
-      this.$store.commit('product/addProduct',product)
+    addProduct(product) {
+      this.$store.commit("product/addProduct", product);
     },
-    addProductItem(productItem){
-      this.$store.commit('product/addProductItem',productItem)
-    }
+    addProductItem(productItem) {
+      this.$store.commit("product/addProductItem", productItem);
+    },
   },
 
   created() {
@@ -68,18 +81,20 @@ export default {
       .get("https://nuxt-js-79077-default-rtdb.firebaseio.com/list.json")
       .then((response) => {
         let data = response.data;
-        let list=[]
-        let temp = ''
-        for(let key in data)
-        {
-          temp = {...data[key],imgSource: this.image[key].imgSource,quantity:1};
-          list.push(temp)
+        let list = [];
+        let temp = "";
+        for (let key in data) {
+          temp = {
+            ...data[key],
+            imgSource: this.image[key].imgSource,
+            quantity: 1,
+          };
+          list.push(temp);
         }
-        this.addProduct(list)
+        this.addProduct(list);
       });
-  }
+  },
 };
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -108,7 +123,7 @@ img {
 .at-sepete-buton {
   cursor: pointer;
   border: none;
-  outline:none;
+  outline: none;
   background-color: transparent;
 }
 .at-sepete-buton img {
