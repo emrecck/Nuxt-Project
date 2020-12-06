@@ -15,7 +15,11 @@
               <i class="fas fa-angle-right text-danger icon"></i>
               Üye Olun</nuxt-link
             >
-            <nuxt-link to="/signin" href="#" class="giris ml-5 text-decoration-none">
+            <nuxt-link
+              to="/signin"
+              href="#"
+              class="giris ml-5 text-decoration-none"
+            >
               <i class="fas fa-angle-right text-danger icon"></i>
               Üye Girişi</nuxt-link
             >
@@ -23,12 +27,87 @@
 
           <div class="col-sm-2 sepet">
             <div class="dropdown">
-              <nuxt-link to="/cart">
-                <button class="dropdown-buton" data-toggle="popover" type="button" data-container="body" data-placement="bottom" data-content="Vivamus">
+              <button
+                @click="dropdown = !dropdown"
+                class="dropdown-buton dropdown-toggle"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
                 <img src="../assets/images/banner/red_basket_icon.png" alt="" />
+                <span class="totalPrice" v-if="cart.length > 0">
+                  {{ total }} TL
+                </span>
+                <span class="totalPrice" v-else>0,00 Tl</span>
               </button>
-              </nuxt-link>
-              
+              <!-- <nuxt-link to="/cart">
+              </nuxt-link> -->
+              <div v-if="dropdown" class="dropdown-body">
+                <div v-if="cart.length > 0" class="card dd-body cart-items">
+                  <div class="clearfix pt-3">
+                    <ul class="w-100 float-left cart-list-top">
+                      <li class="float-left pr-img"></li>
+                      <li class="float-left pr-name">Ürün Adı</li>
+                      <li class="float-left pr-price">Tutar</li>
+                      <li class="float-left pr-delete">Sil</li>
+                    </ul>
+                  </div>
+                  <div class="dropdown-list">
+                    <table class="table">
+                      <tr
+                        class="row"
+                        v-for="(item, index) in cart"
+                        v-bind:key="item.id"
+                      >
+                        <td class="col-sm-3 py-3 img">
+                          <img v-bind:src="item.imgSource" width="80" alt="" />
+                        </td>
+                        <td class="col-sm-4 py-3 name">{{ item.name }}</td>
+                        <td class="col-sm-3 py-3 cost">{{ item.cost }} TL</td>
+                        <td class="col-sm-2 py-3 delete">
+                          <button
+                            @click="remove(index)"
+                            class="border-0 bg-white"
+                          >
+                            <img src="../assets/images/sepet/basket-x.png" />
+                          </button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="dropdown-bottom col-sm-12 py-2">
+                    <div class="row">
+                      <div class="col-5 clearfix">
+                        <span
+                          class="col-sm-12 px-0 text-left float-left ara-toplam"
+                          >Ara Toplam: {{ total }} TL</span
+                        >
+                      </div>
+                      <div class="col-7 px-0">
+                        <div class="row px-0">
+                            <button class="col-7 show-cart-button">
+                              <nuxt-link to="/cart" class="text-white text-decoration-none">
+                                Sepetimi Göster
+                              </nuxt-link>
+                            </button>
+                          
+                            <button class="ml-2 col-4 buy-button">
+                              <nuxt-link to="/cart" class="text-white text-decoration-none">
+                                SATIN AL
+                              </nuxt-link>
+                            </button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div v-else class="card dd-body text-center py-5">
+                  <p>Alışveriş sepetinizde hiç ürün bulunmamaktadır.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -69,11 +148,138 @@ export default {
   components: {
     Navbar,
   },
+  data() {
+    return {
+      dropdown: false,
+    };
+  },
+  computed: {
+    cart() {
+      return this.$store.state.cart.itemList;
+    },
+    total() {
+      let temp = this.$store.state.cart.itemList;
+      let total = 0;
+      for (let index in temp) {
+        total += temp[index].cost;
+      }
+      return total;
+    },
+  },
+  methods: {
+    remove(index) {
+      this.$store.commit("cart/remove", index);
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.totalPrice {
+  color: #d53235;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.ara-toplam {
+  font-size: 1.8rem;
+  color: #4a4643;
+  padding: 12px 0;
+}
+.show-cart-button {
+  background-color: #b8b8b8;
+  color: #fff;
+  border: 0;
+  height: 41px;
+  font-size: 1.7rem;
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+}
+.buy-button {
+  background-color: #73a12e;
+  color: #fff;
+  border: 0;
+  height: 41px;
+  font-size: 1.7rem;
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pr-img {
+  width: 130px;
+  height: 1px;
+}
+.pr-name {
+  width: 180px;
+  text-align: center;
+}
+.pr-price {
+  width: 80px;
+  text-align: center;
+}
+.pr-delete {
+  width: 80px;
+  text-align: right;
+}
+.cart-list-top {
+  padding-bottom: 15px;
+}
+.cart-list-top li {
+  list-style-type: none;
+}
+.cost {
+  color: #d53235;
+  font-size: 1.9rem;
+}
+.dropdown-body {
+  position: relative;
+}
+.dropdown-bottom {
+  position: absolute;
+  bottom: 0;
+  display: block;
+}
+.dropdown-bottom::before {
+  content: "";
+  width: 480px;
+  height: 2px;
+  display: block;
+  position: absolute;
+  top: -10px;
+  background-position: 0 0;
+  background: url(../assets/images/sepet/flyout_borders.png);
+}
+.cart-items {
+  height: 400px;
+}
+.cart-items::after {
+  content: "";
+  width: 480px;
+  height: 2px;
+  display: block;
+  position: absolute;
+  top: 35px;
+  background-position: 0 0;
+  background: url(../assets/images/sepet/flyout_borders.png);
+}
+.dd-body {
+  z-index: 10000;
+  right: 60px;
+  top: 0px;
+  width: 500px;
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.dropdown {
+  position: relative;
+  outline: none;
+}
+.dropdown-list {
+  height: 270px;
+  overflow-x: hidden;
+}
 .banner {
   display: block;
 }
@@ -113,22 +319,6 @@ export default {
 .icon {
   font-size: 1.2rem;
 }
-.dropdown-buton {
-  outline:none;
-  cursor: pointer;
-  background: transparent;
-  border: 0px;
-  padding: 5px 10px;
-  outline: none;
-}
-
-.dropdown-buton:hover {
-  cursor: pointer;
-  background: transparent;
-  border: 0px;
-  outline: none;
-}
-
 .dropdown-buton img {
   width: 25px;
 }
