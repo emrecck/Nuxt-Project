@@ -329,7 +329,7 @@ export default {
 }
 .arama-bar {
   position: absolute;
-  right: 100px;
+  right: 40px;
   top: 50px;
   outline: none;
 }
