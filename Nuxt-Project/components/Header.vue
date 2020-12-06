@@ -146,7 +146,7 @@
               />
             </div>
             <div class="buton col px-0">
-              <button type="button" @click="addProduct(searched)">
+              <button type="button" >
                 <img src="../assets/images/banner/red_magnifier_icon.png" />
               </button>
             </div>
