@@ -1,7 +1,7 @@
 export const state = () => ({
     productList : [],
     imageList:[
-          
+
 
           {
             id: 0,
