@@ -12,7 +12,7 @@
               class="pl-5 sub-item"
             >
                 <nuxt-link to="/allproducts">
-                  <span class="sub-item">{{ i.name }}</span>
+                  <span @click="filter(i.name)" class="sub-item">{{ i.name }}</span>
                 </nuxt-link>
             </div>
           </span>
@@ -133,6 +133,7 @@ export default {
   },
   methods: {
     toggle: function (item) {
+      this.filter(item.name);
       item.active = !item.active;
       item.show = !item.show;
       var liContainer = document.getElementById("side_category_menu");
@@ -145,21 +146,9 @@ export default {
         })
       }
     },
-    makeActive() {
-      var liContainer = document.getElementById("side_category_menu");
-
-      // Get all buttons with class="btn" inside the container
-      var lis = liContainer.getElementsByClassName("list-item");
-
-      // Loop through the buttons and add the active class to the current/clicked button
-      for (var i = 0; i < lis.length; i++) {
-        lis[i].addEventListener("click", function () {
-          var current = document.getElementsByClassName("active");
-          current[0].className = current[0].className.replace(" active", "");
-          this.className += " active";
-        });
-      }
-    },
+    filter(category){
+      this.$store.commit("allProduct/filterCategory",category)
+    }
   },
 };
 </script>
