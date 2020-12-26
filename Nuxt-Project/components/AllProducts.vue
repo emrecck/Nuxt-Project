@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-sm-12 pt-3 px-0">
-              <h3 class="urun-isim text-left">{{ item.name }}</h3>
+              <h3 class="urun-isim text-left cursor">{{ item.name.substr(0,30) }}...</h3>
               <h5 class="urun-alt-isim text-left">{{ item.subName }}</h5>
             </div>
 
@@ -72,6 +72,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.cursor:hover{
+  cursor:pointer;
+}
 img {
   max-width: 100%;
   width: 100%;
