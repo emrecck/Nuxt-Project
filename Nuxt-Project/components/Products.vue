@@ -82,7 +82,7 @@ export default {
 
   created() {
     axios
-      .get("https://nuxt-js-79077-default-rtdb.firebaseio.com/list.json")
+      .get("https://nuxt-js-79077-default-rtdb.firebaseio.com/products.json")
       .then((response) => {
         let data = response.data;
         let list = [];
