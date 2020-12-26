@@ -10,11 +10,11 @@
             <li class="nav-items mt-2">
               <nuxt-link to="/"><div class="ciftlik"></div></nuxt-link>
             </li>
-            <li class="nav-items mt-2">
+            <li class="nav-items mt-2" @click="filter('')">
               <nuxt-link to="/allproducts"><div class="tum-urunler"></div></nuxt-link>
             </li>
-            <li class="nav-items mt-2">
-              <nuxt-link to="/allproducts" @click="filter('Sebzeler')"><div class="domates-biber"></div></nuxt-link>
+            <li class="nav-items mt-2" @click="filter('Sebzeler')">
+              <nuxt-link to="/allproducts" ><div class="domates-biber"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2" @click="filter('Süt')">
               <nuxt-link to="/allproducts"><div class="sut-peynir"></div></nuxt-link>
