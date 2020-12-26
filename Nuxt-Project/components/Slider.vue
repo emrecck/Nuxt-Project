@@ -11,22 +11,18 @@
       :wheelControl="false"
     >
       <slide class="slide"
+        ><nuxt-link to="/allproducts"><img class="images" src="../assets/images/yilbasipaketi-138-.png" alt=""
+      /></nuxt-link></slide>
+      
+      <slide class="slide"
         ><nuxt-link to="/allproducts"><img class="images" src="../assets/images/banner150-137-.jpg" alt=""
       /></nuxt-link></slide>
+
       <slide class="slide"
         ><nuxt-link to="/allproducts"><img class="images" src="../assets/images/sutbanner-136-.jpg" alt=""
       /></nuxt-link></slide>
-      <slide class="slide"
-        ><nuxt-link to="/allproducts"><img
-          class="images"
-          src="../assets/images/Hasanbeycom_banner-33-.jpg"
-          alt=""
-      /></nuxt-link></slide>
-      <slide class="slide"
-        ><nuxt-link to="/allproducts"><img
-          class="images"
-          src="../assets/images/gunluk_koy_yumurta-27-.jpg"
-          alt=""
+
+      <slide class="slide"><nuxt-link to="/allproducts"><img class="images" src="../assets/images/gunluk_koy_yumurta-27-.jpg" alt=""
       /></nuxt-link></slide>
 
       <hooper-navigation slot="hooper-addons"></hooper-navigation>
