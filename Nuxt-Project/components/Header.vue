@@ -146,7 +146,7 @@
               />
             </div>
             <div class="buton col px-0">
-              <button type="button" @click="filter()">
+              <button type="button" @click="filterCategory()">
                 <img src="../assets/images/banner/red_magnifier_icon.png" />
               </button>
             </div>
@@ -203,8 +203,8 @@ export default {
     addProduct(product) {
       this.$store.commit("product/addProduct", product);
     },
-    filter() {
-      this.$store.commit("product/filter",this.search)
+    filterCategory(){
+      this.$store.commit("allProduct/filterCategory",this.search)
     }
   },
 };

@@ -64,7 +64,8 @@ export default {
     },
     addProductItem(productItem){
       this.$store.commit('product/addProductItem',productItem)
-    }
+    },
+
   },
 };
 
