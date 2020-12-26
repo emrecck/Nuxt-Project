@@ -1,7 +1,5 @@
 <template>
   <div>
-      <Header/>
-
       <div class="container pt-5">
         <div class="row">
             <div class="col-sm-3">

@@ -11,9 +11,9 @@
               v-bind:key="i.id"
               class="pl-5 sub-item"
             >
-            <nuxt-link to="/allproducts">
-              <span class="sub-item">{{ i.name }}</span>
-            </nuxt-link>
+                <nuxt-link to="/allproducts">
+                  <span class="sub-item">{{ i.name }}</span>
+                </nuxt-link>
             </div>
           </span>
         </li>

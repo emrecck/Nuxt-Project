@@ -1,6 +1,5 @@
 <template>
   <div>
-      <Header/>
       <SignUp/>
   </div>
 </template>

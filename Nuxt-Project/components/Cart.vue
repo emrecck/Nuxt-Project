@@ -128,9 +128,11 @@
                 <div class="clearfix">
                   <span class="py-3 float-left text-left" >Kargo Ücreti:</span>
                   <span class="py-3 float-right text-right" v-if="listSum < 70">
-                    9, <small> 90 TL</small></span>
-                    <span class="py-3 float-right text-right" v-else>
-                    0, <small> 00 TL</small></span>
+                    9, <small> 90 TL</small>
+                  </span>
+                  <span class="py-3 float-right text-right" v-else>
+                    0, <small> 00 TL</small>
+                  </span>
                 </div>
               </li>
             </ul>

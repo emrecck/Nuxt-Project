@@ -38,7 +38,8 @@ export const state = () => ({
             imgSource: require("../assets/images/ürünler/0001236_yayik-tereyagi-500-gr_500.jpeg"),
           }
     ],
-    productItem:''
+    productItem:'',
+    filteredList : []
   })
 
   export const mutations = {
@@ -56,5 +57,10 @@ export const state = () => ({
       },
       decQuantity(state){
         state.productItem.quantity-=1
+      },
+      filter(state,search){
+        state.filteredList = state.productList.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+        )
       }
   }

@@ -146,7 +146,7 @@
               />
             </div>
             <div class="buton col px-0">
-              <button type="button" >
+              <button type="button" @click="filter()">
                 <img src="../assets/images/banner/red_magnifier_icon.png" />
               </button>
             </div>
@@ -200,9 +200,12 @@ export default {
     addProductItem(productItem) {
       this.$store.commit("product/addProductItem", productItem);
     },
-    addProduct(state, product) {
+    addProduct(product) {
       this.$store.commit("product/addProduct", product);
     },
+    filter() {
+      this.$store.commit("product/filter",this.search)
+    }
   },
 };
 </script>
