@@ -44,7 +44,12 @@ export default {
   props: {},
   computed:{
     product(){
-      return this.$store.state.product.productList
+      if ( this.$store.state.allProduct.filteredCategory.length > 0){
+        return this.$store.state.allProduct.filteredCategory
+      }else{
+        return this.$store.state.allProduct.allProductList
+      }
+      
     },
     image(){
       return this.$store.state.product.imageList

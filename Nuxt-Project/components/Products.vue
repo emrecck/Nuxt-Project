@@ -60,7 +60,7 @@ export default {
       if (this.$store.state.product.filteredList.length > 0){
         return this.$store.state.product.filteredList;
       }else{
-        return this.$store.state.product.productList;
+        return this.$store.state.allProduct.allProductList;
       }  
     },
     image() {
@@ -72,8 +72,8 @@ export default {
       // this.$alert("Ürününüz sepete eklendi.");
       this.$store.commit("cart/add", item);
     },
-    addProduct(product) {
-      this.$store.commit("product/addProduct", product);
+    addAllProduct(product) {
+      this.$store.commit("allProduct/addAllProduct", product);
     },
     addProductItem(productItem) {
       this.$store.commit("product/addProductItem", productItem);
@@ -95,7 +95,7 @@ export default {
           };
           list.push(temp);
         }
-        this.addProduct(list);
+        this.addAllProduct(list);
       });
   },
 };

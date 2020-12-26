@@ -14,24 +14,24 @@
               <nuxt-link to="/allproducts"><div class="tum-urunler"></div></nuxt-link>
             </li>
             <li class="nav-items mt-2">
-              <nuxt-link to="/allproducts"><div class="domates-biber"></div></nuxt-link>
+              <nuxt-link to="/allproducts" @click="filter('Sebzeler')"><div class="domates-biber"></div></nuxt-link>
             </li>
-            <li class="nav-items mt-2">
+            <li class="nav-items mt-2" @click="filter('Süt')">
               <nuxt-link to="/allproducts"><div class="sut-peynir"></div></nuxt-link>
             </li>
-            <li class="nav-items mt-2">
+            <li class="nav-items mt-2" @click="filter('Yumurta & Sucuk')">
               <nuxt-link to="/allproducts"><div class="yumurta-sucuk"></div></nuxt-link>
             </li>
-            <li class="nav-items mt-2">
+            <li class="nav-items mt-2" @click="filter('Salça & Turşu')">
               <nuxt-link to="/allproducts"><div class="salca-tursu"></div></nuxt-link>
             </li>
-            <li class="nav-items mt-2">
+            <li class="nav-items mt-2" @click="filter('Zeytin & Zeytinyağı')">
               <nuxt-link to="/allproducts"><div class="zeytin-zeytinyagi"></div></nuxt-link>
             </li>
-            <li class="nav-items mt-2">
+            <li class="nav-items mt-2" @click="filter('Reçel & Bal')">
               <nuxt-link to="/allproducts"><div class="recel-bal"></div></nuxt-link>
             </li>
-            <li class="nav-items mt-2">
+            <li class="nav-items mt-2" @click="filter('Ekmek')"> 
               <nuxt-link to="/allproducts"><div class="ekmek"></div></nuxt-link>
             </li>
           </ul>
@@ -45,6 +45,11 @@
 export default {
   name: "Navbar",
   props: {},
+  methods: {
+      filter(category){
+      this.$store.commit("allProduct/filterCategory",category)
+    }
+  }
 };
 </script>
 

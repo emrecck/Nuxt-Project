@@ -1,8 +1,6 @@
 export const state = () => ({
     productList : [],
     imageList:[
-          
-
           {
             id: 0,
             imgSource: require("../assets/images/tum-urunler/urunler/yesil-zeytin-kirma-450-gr_500.jpeg"),
