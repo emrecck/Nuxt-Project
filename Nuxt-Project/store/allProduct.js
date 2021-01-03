@@ -4,7 +4,7 @@ export const state = () => ({
   })
 
 
-  export const mutations = {
+export const mutations = {
     addAllProduct(state,allProduct){
       state.allProductList = allProduct;
     },
@@ -13,4 +13,10 @@ export const state = () => ({
       item.category.toLowerCase().includes(category.toLowerCase())
       )
     }
+}
+
+export const actions = {
+  setAllProducts(Context, products){
+    Context.commit("addAllProduct",products)
+  }
 }

@@ -2,17 +2,17 @@
   <div class="tum-urunler-main col-sm-12 px-0">
     <div class="col-sm-12">
       <ul id="side_category_menu" class="side_category_menu col-sm-12">
-        <li :id="item.id" class="list-item" v-for="item in list" v-bind:key="item.id">
-          <nuxt-link to="/allproducts" v-if="item.id == 1"><span @click="toggle(item)"  class="item-name active">{{ item.name }}</span></nuxt-link>
-          <nuxt-link to="/allproducts" v-else ><span @click="toggle(item)" class="item-name"> {{ item.name }} </span></nuxt-link>
-          <span v-if="item.show">
+        <li :id="listItem.id" class="list-item" v-for="listItem in list" v-bind:key="listItem.id">
+          <nuxt-link to="/allproducts" v-if="listItem.id == 1"><span @click="toggle(listItem)"  class="item-name active">{{ listItem.name }}</span></nuxt-link>
+          <nuxt-link to="/allproducts" v-else ><span @click="toggle(listItem)" class="item-name"> {{ listItem.name }} </span></nuxt-link>
+          <span v-if="listItem.show">
             <div
-              v-for="i in item.subList"
-              v-bind:key="i.id"
+              v-for="subItem in listItem.subList"
+              v-bind:key="subItem.id"
               class="pl-5 sub-item"
             >
                 <nuxt-link to="/allproducts">
-                  <span @click="filter(i.name)" class="sub-item">{{ i.name }}</span>
+                  <span @click="filter(subItem.name)" class="sub-item">{{ subItem.name }}</span>
                 </nuxt-link>
             </div>
           </span>

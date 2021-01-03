@@ -83,14 +83,14 @@ export default {
   props: {},
   computed: {
     productItem() {
-      return this.$store.state.product.productItem;
+      return this.$store.state.productItem;
     },
     value: {
       get() {
-        return this.$store.state.product.productItem.quantity;
+        return this.$store.state.productItem.quantity;
       },
       set(value) {
-        this.$store.commit("product/setQuantity", value);
+        this.$store.commit("setQuantity", value);
       },
     },
   },
@@ -99,10 +99,10 @@ export default {
       this.$store.commit("cart/add", item);
     },
     incQuantity(state) {
-      this.$store.commit("product/incQuantity");
+      this.$store.commit("incQuantity");
     },
     decQuantity(state) {
-      this.$store.commit("product/decQuantity");
+      this.$store.commit("decQuantity");
     },
   },
 };

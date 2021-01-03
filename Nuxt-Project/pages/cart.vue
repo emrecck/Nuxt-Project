@@ -5,11 +5,9 @@
 </template>
 
 <script>
-import Header from "../components/Header.vue";
 import Cart from "../components/Cart.vue";
 export default {
   components: {
-    Header,
     Cart
   },
 

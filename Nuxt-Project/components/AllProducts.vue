@@ -1,27 +1,27 @@
 <template>
   <div class="products col-sm-12">
     <div class="row">
-      <div class="col-sm-4 px-0 p-2" v-for="item in product" v-bind:key="item.id">
+      <div class="col-sm-4 px-0 p-2" v-for="pitem in product" v-bind:key="pitem.id">
         <div class="col-sm-12 p-3 border-layer">
           <div class="col-sm-12 px-0 urun">
             <div class="col-sm-12 p-0">
               <a href="#">
-                <nuxt-link to="/product"><img @click="addProductItem(item)" class="urun-img" v-bind:src="item.imgSource" /></nuxt-link>
+                <nuxt-link to="/product"><img @click="addProductItem(pitem)" class="urun-img" v-bind:src="pitem.imgSource" /></nuxt-link>
               </a>
             </div>
 
             <div class="col-sm-12 pt-3 px-0">
-              <h3 class="urun-isim text-left cursor">{{ item.name.substr(0,30) }}...</h3>
-              <h5 class="urun-alt-isim text-left">{{ item.subName }}</h5>
+              <h3 class="urun-isim text-left cursor">{{ pitem.name.substr(0,30) }}...</h3>
+              <h5 class="urun-alt-isim text-left">{{ pitem.subName }}</h5>
             </div>
 
             <div class="fiyat-at-sepete clearfix">
               <div class="row">
                 <div class="col-sm-6">
-                  <h3 class="urun-fiyat text-left">{{ item.cost }} TL</h3>
+                  <h3 class="urun-fiyat text-left">{{ pitem.cost }} TL</h3>
                 </div>
 
-                <button @click="addItem(item)" class="col-sm-6 at-sepete-buton">
+                <button @click="addItem(pitem)" class="col-sm-6 at-sepete-buton">
                   <!-- <a class="col-sm-6 at-sepete-buton"> -->
                     <img src="../assets/images/banner/at_sepete_sprite.png" />
                   <!-- </a> -->
@@ -36,8 +36,6 @@
 </template>
 
 <script>
-import axios from "axios";
-import { mapMutations } from "vuex";
 
 export default {
   name: "Products",
@@ -51,19 +49,16 @@ export default {
       }
       
     },
-    image(){
-      return this.$store.state.product.imageList
-    }
   },
   methods: {
     addItem(item){
       this.$store.commit('cart/add', item);
     },
-    addProduct(product){
-      this.$store.commit('product/addProduct',product)
+    updateProduct(product){
+      this.$store.dispatch('updateProducts',products)
     },
     addProductItem(productItem){
-      this.$store.commit('product/addProductItem',productItem)
+      this.$store.commit('addProductItem',productItem)
     },
 
   },

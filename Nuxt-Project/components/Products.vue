@@ -3,8 +3,8 @@
     <div class="row">
       <div
         class="col-sm-3 px-0 p-2"
-        v-for="item in product"
-        v-bind:key="item.id"
+        v-for="productItem in product"
+        v-bind:key="productItem.id"
       >
         <div class="col-sm-12 p-3 border-layer">
           <div class="col-sm-12 px-0 urun">
@@ -12,25 +12,25 @@
               <a href="#">
                 <nuxt-link to="/product"
                   ><img
-                    @click="addProductItem(item)"
+                    @click="addProductItem(productItem)"
                     class="urun-img"
-                    v-bind:src="item.imgSource"
+                    v-bind:src="productItem.imgSource"
                 /></nuxt-link>
               </a>
             </div>
 
             <div class="col-sm-12 pt-3 px-0">
-              <h3 class="urun-isim text-left">{{ item.name }}</h3>
-              <h5 class="urun-alt-isim text-left">{{ item.subName }}</h5>
+              <h3 class="urun-isim text-left">{{ productItem.name }}</h3>
+              <h5 class="urun-alt-isim text-left">{{ productItem.subName }}</h5>
             </div>
 
             <div class="fiyat-at-sepete clearfix">
               <div class="row">
                 <div class="col-sm-6">
-                  <h3 class="urun-fiyat text-left">{{ item.cost }} TL</h3>
+                  <h3 class="urun-fiyat text-left">{{ productItem.cost }} TL</h3>
                 </div>
 
-                <button @click="addItem(item)" class="col-sm-6 at-sepete-buton">
+                <button @click="addItem(productItem)" class="col-sm-6 at-sepete-buton">
                   <!-- <a class="col-sm-6 at-sepete-buton"> -->
                   <img src="../assets/images/banner/at_sepete_sprite.png" />
                   <!-- </a> -->
@@ -45,27 +45,17 @@
 </template>
 
 <script>
-import Vue from "vue";
-import VueSimpleAlert from "vue-simple-alert";
-Vue.use(VueSimpleAlert);
-
-import axios from "axios";
-import { mapMutations } from "vuex";
-
 export default {
   name: "Products",
   props: {},
   computed: {
     product() {
-      if (this.$store.state.product.filteredList.length > 0){
-        return this.$store.state.product.filteredList;
+      if (this.$store.state.filteredList.length > 0){
+        return this.$store.state.filteredList;
       }else{
-        return this.$store.state.allProduct.allProductList;
+        return this.$store.state.productList;
       }  
-    },
-    image() {
-      return this.$store.state.product.imageList;
-    },
+    }
   },
   methods: {
     addItem(item) {
@@ -76,28 +66,30 @@ export default {
       this.$store.commit("allProduct/addAllProduct", product);
     },
     addProductItem(productItem) {
-      this.$store.commit("product/addProductItem", productItem);
+      this.$store.commit("addProductItem", productItem);
     },
   },
-
   created() {
-    axios
-      .get("https://nuxt-js-79077-default-rtdb.firebaseio.com/products.json")
-      .then((response) => {
-        let data = response.data;
-        let list = [];
-        let temp = "";
-        for (let key in data) {
-          temp = {
-            ...data[key],
-            imgSource: this.image[key].imgSource,
-            quantity: 1,
-          };
-          list.push(temp);
-        }
-        this.addAllProduct(list);
-      });
-  },
+    this.$store.dispatch("allProduct/setAllProducts",this.$store.state.productList)
+  }
+  // created() {
+  //   axios
+  //     .get("https://nuxt-js-79077-default-rtdb.firebaseio.com/products.json")
+  //     .then((response) => {
+  //       let data = response.data;
+  //       let list = [];
+  //       let temp = "";
+  //       for (let key in data) {
+  //         temp = {
+  //           ...data[key],
+  //           imgSource: this.image[key].imgSource,
+  //           quantity: 1,
+  //         };
+  //         list.push(temp);
+  //       }
+  //       this.addAllProduct(list);
+  //     });
+  // },
 };
 </script>
 

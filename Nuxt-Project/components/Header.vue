@@ -53,14 +53,14 @@
                     <table class="table">
                       <tr
                         class="row"
-                        v-for="(item, index) in cart"
-                        v-bind:key="item.id"
+                        v-for="(Cartitem, index) in cart"
+                        v-bind:key="Cartitem.id"
                       >
                         <td class="col-sm-3 py-3 img">
                           <nuxt-link to="/product">
                             <img
-                              @click="addProductItem(item)"
-                              v-bind:src="item.imgSource"
+                              @click="addProductItem(Cartitem)"
+                              v-bind:src="Cartitem.imgSource"
                               width="80"
                               alt=""
                             />
@@ -68,8 +68,8 @@
                         </td>
                         <td class="col-sm-4 py-3 name">
                           <nuxt-link to="/product" class="text-dark"
-                            ><span @click="addProductItem(item)">{{
-                              item.name
+                            ><span @click="addProductItem(Cartitem)">{{
+                              Cartitem.name
                             }}</span></nuxt-link
                           >
                         </td>
@@ -187,23 +187,19 @@ export default {
       }
       return total;
     },
-    searched() {
-      return this.$store.state.product.productList.filter((item) =>
-        item.name.toLowerCase().includes(this.search.toLowerCase())
-      );
-    },
   },
   methods: {
     remove(index) {
       this.$store.commit("cart/remove", index);
     },
     addProductItem(productItem) {
-      this.$store.commit("product/addProductItem", productItem);
+      this.$store.commit("addProductItem", productItem);
     },
     addProduct(product) {
-      this.$store.commit("product/addProduct", product);
+      this.$store.commit("addProduct", product);
     },
     filterCategory(){
+      this.$store.dispatch("filtered",this.search)
       this.$store.commit("allProduct/filterCategory",this.search)
     }
   },

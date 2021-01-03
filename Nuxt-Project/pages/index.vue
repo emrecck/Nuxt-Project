@@ -8,15 +8,13 @@
 </template>
 
 <script>
-import Header from "../components/Header.vue";
 import Slider from "../components/Slider.vue";
 import Products from "../components/Products.vue";
 export default {
   components: {
-    Header,
     Slider,
-    Products,
-  },
+    Products
+  }
 };
 </script>
 

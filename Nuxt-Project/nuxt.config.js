@@ -1,7 +1,6 @@
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
-  ssr: false,
-
+  ssr: true,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Hasanbey',
@@ -21,10 +20,10 @@ export default {
     { src: 'https://code.jquery.com/jquery-3.3.1.slim.min.js' },
     { src: 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js' },
   ],
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
   ],
-
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     '~/plugins/vuesax.js'
@@ -37,6 +36,8 @@ export default {
   buildModules: [
   ],
 
+  serverMiddleware: ['~/middleware/api/logger'],
+  
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
   ],

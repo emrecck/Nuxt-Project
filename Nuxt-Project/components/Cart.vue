@@ -220,7 +220,7 @@ export default {
       this.$store.commit("cart/decCounter", index);
     },
     addProductItem(product){
-      this.$store.commit("product/addProductItem",product)
+      this.$store.commit("addProductItem",product)
     }
   },
 };

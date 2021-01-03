@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import Header from "../components/Header.vue";
-import SignIn from "../components/SignIn.vue";
+import AllProducts from "../components/AllProducts.vue";
+import Menu from "../components/Menu.vue";
 
 export default {
   components: {
-    Header,
-    SignIn
+    Menu,
+    AllProducts
   },
 };
 </script>
