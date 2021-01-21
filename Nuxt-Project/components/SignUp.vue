@@ -8,7 +8,7 @@
             <h4 class="uye-olun-baslik-2 py-3">Kişisel Bilgilerim</h4>
 
             <div class="uye-olun-kart">
-              <form id="myform">
+              <form id="myform" @submit.prevent="pressed">
                 <div class="inputlar">
                   <label for="FirstName">Adı:</label>
                   <input type="text" name="f-name" id="f-nameID" required />
@@ -23,7 +23,7 @@
 
                 <div class="inputlar" id="myform">
                   <label for="Email">E-Posta Adresi:</label>
-                  <input type="text" required />
+                  <input type="Email" required />
                   <span class="required-1">*</span>
                 </div>
 
@@ -154,9 +154,28 @@
 </template>
 
 <script>
+import firebase from 'firebase/app'
+import 'firebase/auth'
 export default {
   name: "SignUp",
   props: {},
+  data() {
+    return {
+      email: '',
+      password: '',
+      errors: ''
+    }
+  },
+  methods:{
+    pressed(){
+      firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(user =>{
+
+        console.log(user);
+      }).catch(error =>{
+        this.errors = error;
+      })
+    }
+  }
 };
 </script>
 

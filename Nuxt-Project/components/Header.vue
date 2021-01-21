@@ -74,7 +74,7 @@
                           >
                         </td>
                         <td class="col-sm-3 py-3 cost">
-                          {{ (item.cost * item.quantity).toFixed(2) }} TL
+                          {{ (Cartitem.cost * Cartitem.quantity).toFixed(2) }} TL
                         </td>
                         <td class="col-sm-2 py-3 delete">
                           <button
@@ -140,13 +140,14 @@
           <div class="row">
             <div class="bar col px-0">
               <input
+                id="searchbox"
                 v-model="search"
                 type="text"
                 placeholder="Yumurta, Domates, Süt..."
               />
             </div>
             <div class="buton col px-0">
-              <button type="button" @click="filterCategory()">
+              <button type="button" @click="filterCategory()"> 
                 <img src="../assets/images/banner/red_magnifier_icon.png" />
               </button>
             </div>
@@ -201,7 +202,17 @@ export default {
     filterCategory(){
       this.$store.dispatch("filtered",this.search)
       this.$store.commit("allProduct/filterCategory",this.search)
-    }
+    },
+    // searchbox(){
+    //   var input = document.getElementById("searchbox");
+    //   input.addEventListener("keyup",function(event){
+    //     if(event.code == 13)
+    //     {
+    //       event.preventDefault();
+    //       document.getElementById("searchbox").click();
+    //     }
+    //   })
+    // }
   },
 };
 </script>
